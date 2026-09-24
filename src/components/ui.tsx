@@ -1,8 +1,9 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import type { ComponentProps, ReactNode } from 'react';
 import {
+  ActivityIndicator,
+  Modal,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -11,192 +12,252 @@ import {
   type ViewStyle,
 } from 'react-native';
 
-import { radius, spacing, useColors } from '@/constants/theme';
+import { MIN_TOUCH, colors, radius, spacing, type } from '@/theme';
 
-export function Screen({ children }: { children: ReactNode }) {
-  const colors = useColors();
+export type IconName = ComponentProps<typeof Ionicons>['name'];
+
+type TextProps = {
+  children: ReactNode;
+  style?: StyleProp<TextStyle>;
+  numberOfLines?: number;
+};
+
+export function Title({ children, style, numberOfLines }: TextProps) {
   return (
-    <ScrollView
-      style={{ backgroundColor: colors.background }}
-      contentContainerStyle={styles.screen}
-      contentInsetAdjustmentBehavior="automatic"
-      keyboardShouldPersistTaps="handled"
-    >
+    <Text accessibilityRole="header" numberOfLines={numberOfLines} style={[styles.title, style]}>
       {children}
-    </ScrollView>
+    </Text>
   );
 }
 
-export function Card({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
-  const colors = useColors();
+export function Heading({ children, style, numberOfLines }: TextProps) {
   return (
-    <View
-      style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }, style]}
-    >
+    <Text numberOfLines={numberOfLines} style={[styles.heading, style]}>
       {children}
-    </View>
+    </Text>
   );
-}
-
-type TextProps = { children: ReactNode; style?: StyleProp<TextStyle>; numberOfLines?: number };
-
-export function Title({ children, style }: TextProps) {
-  const colors = useColors();
-  return <Text style={[styles.title, { color: colors.text }, style]}>{children}</Text>;
-}
-
-export function Heading({ children, style }: TextProps) {
-  const colors = useColors();
-  return <Text style={[styles.heading, { color: colors.text }, style]}>{children}</Text>;
 }
 
 export function Body({ children, style, numberOfLines }: TextProps) {
-  const colors = useColors();
   return (
-    <Text numberOfLines={numberOfLines} style={[styles.body, { color: colors.text }, style]}>
+    <Text numberOfLines={numberOfLines} style={[styles.body, style]}>
       {children}
     </Text>
   );
 }
 
-export function Muted({ children, style, numberOfLines }: TextProps) {
-  const colors = useColors();
+export function Caption({ children, style, numberOfLines }: TextProps) {
   return (
-    <Text numberOfLines={numberOfLines} style={[styles.muted, { color: colors.textMuted }, style]}>
+    <Text numberOfLines={numberOfLines} style={[styles.caption, style]}>
       {children}
     </Text>
-  );
-}
-
-export function SectionHeader({ title, action }: { title: string; action?: ReactNode }) {
-  return (
-    <View style={styles.sectionHeader}>
-      <Heading>{title}</Heading>
-      {action}
-    </View>
-  );
-}
-
-export function ProgressBar({ value }: { value: number }) {
-  const colors = useColors();
-  const pct = Math.max(0, Math.min(1, value)) * 100;
-  return (
-    <View style={[styles.track, { backgroundColor: colors.track }]}>
-      <View style={[styles.fill, { width: `${pct}%`, backgroundColor: colors.primary }]} />
-    </View>
   );
 }
 
 type ButtonProps = {
   label: string;
   onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'danger';
+  icon?: IconName;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
   disabled?: boolean;
+  loading?: boolean;
+  style?: StyleProp<ViewStyle>;
+  accessibilityHint?: string;
 };
 
-export function Button({ label, onPress, variant = 'primary', disabled }: ButtonProps) {
-  const colors = useColors();
-  const bg =
-    variant === 'primary' ? colors.primary : variant === 'danger' ? colors.danger : colors.surface;
-  const fg = variant === 'secondary' ? colors.text : colors.primaryText;
+export function Button({
+  label,
+  onPress,
+  icon,
+  variant = 'primary',
+  disabled,
+  loading,
+  style,
+  accessibilityHint,
+}: ButtonProps) {
+  const bg = {
+    primary: colors.accent,
+    secondary: colors.surfaceRaised,
+    ghost: 'transparent',
+    danger: colors.surfaceRaised,
+  }[variant];
+  const fg = variant === 'danger' ? colors.danger : variant === 'primary' ? colors.accentText : colors.text;
+  const inactive = disabled || loading;
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityHint={accessibilityHint}
+      accessibilityState={{ disabled: inactive, busy: loading }}
+      disabled={inactive}
       onPress={onPress}
-      disabled={disabled}
       style={({ pressed }) => [
         styles.button,
-        {
-          backgroundColor: bg,
-          borderColor: colors.border,
-          opacity: disabled ? 0.5 : pressed ? 0.8 : 1,
-        },
+        { backgroundColor: bg, opacity: inactive ? 0.5 : pressed ? 0.75 : 1 },
+        style,
       ]}
     >
-      <Text style={[styles.buttonLabel, { color: fg }]}>{label}</Text>
+      {loading ? (
+        <ActivityIndicator color={fg} />
+      ) : (
+        <>
+          {icon ? <Ionicons name={icon} size={20} color={fg} /> : null}
+          <Text style={[styles.buttonLabel, { color: fg }]} numberOfLines={1}>
+            {label}
+          </Text>
+        </>
+      )}
     </Pressable>
   );
 }
 
-type IconName = ComponentProps<typeof Ionicons>['name'];
-
-export function CheckRow({
-  label,
-  checked,
-  onToggle,
-  trailing,
-}: {
+type IconButtonProps = {
+  icon: IconName;
   label: string;
-  checked: boolean;
-  onToggle: () => void;
-  trailing?: ReactNode;
-}) {
-  const colors = useColors();
-  const icon: IconName = checked ? 'checkmark-circle' : 'ellipse-outline';
+  onPress: () => void;
+  color?: string;
+  size?: number;
+  disabled?: boolean;
+  active?: boolean;
+  style?: StyleProp<ViewStyle>;
+};
+
+/** Icon-only button with a 44pt hit area and a required accessibility label. */
+export function IconButton({
+  icon,
+  label,
+  onPress,
+  color = colors.text,
+  size = 24,
+  disabled,
+  active,
+  style,
+}: IconButtonProps) {
   return (
     <Pressable
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked }}
-      onPress={onToggle}
-      style={styles.checkRow}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ disabled, selected: active }}
+      disabled={disabled}
+      onPress={onPress}
+      hitSlop={4}
+      style={({ pressed }) => [
+        styles.iconButton,
+        active && { backgroundColor: colors.surfaceRaised },
+        { opacity: disabled ? 0.35 : pressed ? 0.6 : 1 },
+        style,
+      ]}
     >
-      <Ionicons name={icon} size={26} color={checked ? colors.success : colors.textMuted} />
-      <Body
-        style={[
-          { flex: 1 },
-          checked && { textDecorationLine: 'line-through', color: colors.textMuted },
-        ]}
-      >
-        {label}
-      </Body>
-      {trailing}
+      <Ionicons name={icon} size={size} color={color} />
     </Pressable>
   );
 }
 
-export function Pill({ label }: { label: string }) {
-  const colors = useColors();
+type StateProps = {
+  icon: IconName;
+  title: string;
+  message?: string;
+  children?: ReactNode;
+  tone?: 'neutral' | 'error' | 'warning';
+};
+
+/** Shared layout for empty, error, permission and offline states. */
+export function StateView({ icon, title, message, children, tone = 'neutral' }: StateProps) {
+  const iconColor =
+    tone === 'error' ? colors.danger : tone === 'warning' ? colors.warning : colors.textMuted;
   return (
-    <View style={[styles.pill, { backgroundColor: colors.track }]}>
-      <Text style={[styles.pillText, { color: colors.textMuted }]}>{label}</Text>
+    <View style={styles.state} accessibilityRole="summary">
+      <Ionicons name={icon} size={44} color={iconColor} />
+      <Heading style={styles.center}>{title}</Heading>
+      {message ? <Body style={[styles.center, { color: colors.textMuted }]}>{message}</Body> : null}
+      {children ? <View style={styles.stateActions}>{children}</View> : null}
+    </View>
+  );
+}
+
+export function LoadingOverlay({ visible, message }: { visible: boolean; message: string }) {
+  return (
+    <Modal visible={visible} transparent animationType="fade" statusBarTranslucent>
+      <View style={styles.overlay} accessibilityViewIsModal accessibilityLiveRegion="polite">
+        <View style={styles.overlayCard}>
+          <ActivityIndicator size="large" color={colors.text} />
+          <Body>{message}</Body>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
+export function Banner({
+  icon,
+  message,
+  tone = 'warning',
+}: {
+  icon: IconName;
+  message: string;
+  tone?: 'warning' | 'error';
+}) {
+  const color = tone === 'error' ? colors.danger : colors.warning;
+  return (
+    <View style={[styles.banner, { borderColor: color }]} accessibilityRole="alert">
+      <Ionicons name={icon} size={18} color={color} />
+      <Caption style={{ flex: 1, color: colors.text }}>{message}</Caption>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { padding: spacing.md, gap: spacing.md, paddingBottom: spacing.xl },
-  card: {
+  title: { ...type.title, color: colors.text },
+  heading: { ...type.heading, color: colors.text },
+  body: { ...type.body, color: colors.text },
+  caption: { ...type.caption, color: colors.textMuted },
+  center: { textAlign: 'center' },
+  button: {
+    minHeight: MIN_TOUCH,
     borderRadius: radius.md,
-    borderWidth: StyleSheet.hairlineWidth,
-    padding: spacing.md,
+    paddingHorizontal: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: spacing.sm,
   },
-  title: { fontSize: 28, fontWeight: '700' },
-  heading: { fontSize: 18, fontWeight: '600' },
-  body: { fontSize: 16, lineHeight: 22 },
-  muted: { fontSize: 14, lineHeight: 20 },
-  sectionHeader: {
+  buttonLabel: { fontSize: 16, fontWeight: '600', flexShrink: 1 },
+  iconButton: {
+    minWidth: MIN_TOUCH,
+    minHeight: MIN_TOUCH,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  state: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: spacing.xxl,
+    gap: spacing.md,
+  },
+  stateActions: { alignSelf: 'stretch', gap: spacing.sm, marginTop: spacing.sm },
+  overlay: {
+    flex: 1,
+    backgroundColor: colors.scrim,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  overlayCard: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    alignItems: 'center',
+    gap: spacing.md,
+    minWidth: 200,
+  },
+  banner: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: spacing.sm,
+    gap: spacing.sm,
+    borderWidth: 1,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    backgroundColor: colors.surface,
   },
-  track: { height: 8, borderRadius: radius.pill, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: radius.pill },
-  button: {
-    borderRadius: radius.sm,
-    borderWidth: StyleSheet.hairlineWidth,
-    paddingVertical: 12,
-    paddingHorizontal: spacing.md,
-    alignItems: 'center',
-  },
-  buttonLabel: { fontSize: 16, fontWeight: '600' },
-  checkRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingVertical: 6 },
-  pill: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-  },
-  pillText: { fontSize: 12, fontWeight: '600' },
 });

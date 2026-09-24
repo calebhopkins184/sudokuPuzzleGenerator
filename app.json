@@ -1,18 +1,26 @@
 {
   "expo": {
-    "name": "Coach",
-    "slug": "coaching-app",
-    "scheme": "coachingapp",
+    "name": "Mat Review",
+    "slug": "mat-review",
+    "scheme": "matreview",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0D10",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.calebhopkins.matreview",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.calebhopkins.matreview",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B0D10",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -22,7 +30,25 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Mat Review needs access to your videos so you can import match footage for review.",
+          "cameraPermission": "Mat Review uses the camera to record match footage for review.",
+          "microphonePermission": "Mat Review records audio with match footage so you can hear the whistle and coaching cues."
+        }
+      ],
+      [
+        "expo-video",
+        {
+          "supportsBackgroundPlayback": false,
+          "supportsPictureInPicture": false
+        }
+      ],
+      "expo-font"
+    ],
     "experiments": {
       "typedRoutes": true
     }

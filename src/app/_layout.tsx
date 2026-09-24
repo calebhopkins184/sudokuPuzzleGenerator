@@ -1,47 +1,33 @@
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { DarkTheme, Stack, ThemeProvider, type Theme } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, View, useColorScheme } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { useColors } from '@/constants/theme';
-import { CoachingProvider, useCoaching } from '@/store/CoachingStore';
+import { ToastProvider } from '@/components/Toast';
+import { colors } from '@/theme';
 
-function RootStack() {
-  const { ready } = useCoaching();
-  const colors = useColors();
-
-  if (!ready) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: colors.background,
-        }}
-      >
-        <ActivityIndicator color={colors.primary} />
-      </View>
-    );
-  }
-
-  return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="goal/[id]" options={{ title: 'Goal' }} />
-      <Stack.Screen name="goal/new" options={{ title: 'New goal', presentation: 'modal' }} />
-      <Stack.Screen name="session/[id]" options={{ title: 'Session' }} />
-    </Stack>
-  );
-}
+const navTheme: Theme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: colors.accent,
+    background: colors.background,
+    card: colors.surface,
+    text: colors.text,
+    border: colors.border,
+  },
+};
 
 export default function RootLayout() {
-  const scheme = useColorScheme();
   return (
-    <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <CoachingProvider>
-        <RootStack />
-        <StatusBar style="auto" />
-      </CoachingProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={navTheme}>
+        <ToastProvider>
+          <Stack screenOptions={{ contentStyle: { backgroundColor: colors.background } }}>
+            <Stack.Screen name="index" options={{ title: 'Mat Review' }} />
+          </Stack>
+          <StatusBar style="light" />
+        </ToastProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
