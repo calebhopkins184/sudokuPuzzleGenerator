@@ -81,7 +81,8 @@ export function Button({
     ghost: 'transparent',
     danger: colors.surfaceRaised,
   }[variant];
-  const fg = variant === 'danger' ? colors.danger : variant === 'primary' ? colors.accentText : colors.text;
+  const fg =
+    variant === 'danger' ? colors.danger : variant === 'primary' ? colors.accentText : colors.text;
   const inactive = disabled || loading;
   return (
     <Pressable
