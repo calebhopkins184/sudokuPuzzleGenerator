@@ -5,8 +5,9 @@ import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from 'react-na
 import { Field, TimeAdjuster } from '@/components/Field';
 import { Button, Caption, StateView } from '@/components/ui';
 import { useSession, useSessions } from '@/features/sessions/SessionsStore';
+import { YouTubeSearch } from '@/features/youtube/YouTubeSearch';
 import { createId } from '@/lib/id';
-import { hostOf, normalizeUrl } from '@/lib/url';
+import { hostOf, normalizeUrl, youtubeWatchUrl } from '@/lib/url';
 import { colors, spacing } from '@/theme';
 
 export default function AddLinkScreen() {
@@ -49,6 +50,13 @@ export default function AddLinkScreen() {
     >
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
         <TimeAdjuster value={timeSec} max={duration} onChange={setTimeSec} />
+        <YouTubeSearch
+          onSelect={(r) => {
+            setUrl(youtubeWatchUrl(r.videoId));
+            setTitle(r.title);
+            setSource('youtube');
+          }}
+        />
         <Field
           label="Link"
           placeholder="https://…"

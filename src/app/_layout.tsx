@@ -74,6 +74,10 @@ function AppStack() {
         options={{ title: 'Add note', presentation: 'modal' }}
       />
       <Stack.Screen
+        name="session/[id]/clip"
+        options={{ title: 'Insert clip', presentation: 'modal' }}
+      />
+      <Stack.Screen
         name="session/[id]/link"
         options={{ title: 'Add link', presentation: 'modal' }}
       />

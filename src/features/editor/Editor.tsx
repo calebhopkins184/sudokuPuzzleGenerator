@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button } from '@/components/ui';
 import { MarksList } from '@/features/editor/MarksList';
 import type { MediaRef, Session } from '@/features/sessions/types';
+import { ClipOverlay } from '@/features/player/ClipOverlay';
 import { InsertBadge } from '@/features/player/InsertBadge';
 import { PlayerSurface } from '@/features/player/PlayerSurface';
 import { useSessions } from '@/features/sessions/SessionsStore';
@@ -26,12 +27,14 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
     [session.annotations, session.clips],
   );
 
-  const addMark = (kind: 'note' | 'link') => {
+  const addMark = (kind: 'note' | 'link' | 'clip') => {
     main.player.pause();
-    router.push({
-      pathname: kind === 'note' ? '/session/[id]/note' : '/session/[id]/link',
-      params: { id: session.id, t: String(main.time) },
-    });
+    const pathname = {
+      note: '/session/[id]/note',
+      link: '/session/[id]/link',
+      clip: '/session/[id]/clip',
+    } as const;
+    router.push({ pathname: pathname[kind], params: { id: session.id, t: String(main.time) } });
   };
 
   const aspect = media.width && media.height ? media.width / media.height : 16 / 9;
@@ -40,6 +43,7 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
     <View style={styles.container}>
       <PlayerSurface main={main} style={{ width: '100%', aspectRatio: Math.max(aspect, 4 / 5) }}>
         <InsertBadge mode={main.mode} onReturn={main.seekTo} />
+        <ClipOverlay main={main} session={session} />
       </PlayerSurface>
       <ScrollView contentContainerStyle={styles.controls}>
         <Timeline
@@ -88,8 +92,20 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
             onPress={() => addMark('link')}
             style={styles.action}
           />
+          <Button
+            label="Clip"
+            icon="film-outline"
+            variant="secondary"
+            onPress={() => addMark('clip')}
+            style={styles.action}
+          />
         </View>
-        <MarksList session={session} currentTime={main.time} onJump={main.seekTo} />
+        <MarksList
+          session={session}
+          currentTime={main.time}
+          onJump={main.seekTo}
+          onPlayClip={main.playClip}
+        />
       </ScrollView>
     </View>
   );

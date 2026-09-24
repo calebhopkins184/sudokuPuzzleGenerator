@@ -191,6 +191,7 @@ export function onClipFinished(state: EngineState, input: { baseRate: number }):
 }
 
 export function onClipFailed(state: EngineState, input: { baseRate: number }): Step {
+  if (state.mode.kind !== 'clip') return { state, effects: [] };
   const step = onClipFinished(state, input);
   return {
     ...step,
