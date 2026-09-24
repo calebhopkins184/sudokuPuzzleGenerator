@@ -1,53 +1,53 @@
-# Coach — Expo coaching app
+# Mat Review
 
-A cross-platform (iPhone + Android) coaching app built with [Expo](https://expo.dev) SDK 57, Expo Router and TypeScript. It runs in **Expo Go**: no Xcode or Android Studio needed.
+An iOS-first Expo app for wrestling coaches to review match footage on a phone. Coaches keep sessions on the device, replay key sequences, slow down technique, and attach notes, links and extra clips to exact moments.
 
-## Features
+- **Product contract** (screens, data model, playback rules, checklist): [docs/PRODUCT_CONTRACT.md](docs/PRODUCT_CONTRACT.md)
+- **Acceptance review** and on-device test script: [docs/ACCEPTANCE_REVIEW.md](docs/ACCEPTANCE_REVIEW.md)
+- **TestFlight prep:** [docs/TESTFLIGHT.md](docs/TESTFLIGHT.md)
 
-- **Today**: greeting, next coaching session, daily habit checklist with streaks, and a prompt to check in.
-- **Goals**: goals with categories, target dates and milestones. Ticking off milestones moves the progress bar. You can add and delete goals.
-- **Sessions**: upcoming and past coaching sessions, each with an agenda and your own notes.
-- **Check-in**: a daily mood and energy check with a written reflection, plus recent history.
-- **Profile**: your coach's details (with an email link), stats, and a reset to the sample data.
-
-All data is stored on the device with AsyncStorage. The first launch loads sample data from `src/data/seed.ts`.
-
-## Getting started
+## Run it
 
 ```bash
 npm install
-npm start          # then scan the QR code with Expo Go (Android) or the Camera app (iOS)
+npm start            # open in Expo Go, or a development build, on a real iPhone
 ```
 
-Other scripts:
+The web preview can't verify the camera, file access or video playback. Test those on a device.
+
+## Checks
 
 ```bash
-npm run typecheck  # tsc --noEmit
-npm run doctor     # expo-doctor
+npm run typecheck    # tsc --noEmit
+npm test             # jest: playback engine, persistence, URL and search client
+npm run doctor       # expo-doctor
+npm run bundle:ios   # production iOS bundle (expo export)
 ```
 
-Add dependencies with `npx expo install <package>` so the versions stay compatible with the SDK.
+Add native packages with `npx expo install <pkg>` so their versions match the Expo SDK (57).
 
-## Project structure
+## Structure
 
 ```
 src/
-  app/                  # Expo Router routes (every file is a screen)
-    _layout.tsx         # Root stack, theme, and data provider
-    (tabs)/             # Bottom tabs: Today, Goals, Sessions, Check-in, Profile
-    goal/[id].tsx       # Goal detail
-    goal/new.tsx        # New-goal modal
-    session/[id].tsx    # Session detail and notes
-  components/           # Shared UI (cards, buttons, progress bar, text field…)
-  constants/theme.ts    # Light and dark color palettes, spacing, radius
-  data/                 # Types and sample seed data
-  lib/                  # Date and id helpers
-  store/CoachingStore.tsx  # App state (reducer + context), saved to AsyncStorage
+  app/                        Expo Router screens
+    index.tsx                 Sessions list (rename/delete)
+    settings.tsx              Replay window, slow rate, auto-play clips, compression, storage
+    session/new.tsx           New session: library / record / empty
+    session/[id]/index.tsx    Editor (or no-footage / missing-footage states)
+    session/[id]/note.tsx     Add note at a moment
+    session/[id]/link.tsx     Add link (+ YouTube search)
+    session/[id]/clip.tsx     Insert clip at a moment
+  features/
+    sessions/                 Data model, reducer, AsyncStorage store
+    media/                    Import/record, file storage, footage states
+    player/                   Playback engine, player hook, timeline, transport, clip overlay
+    editor/                   Editor layout (portrait/landscape), marks list
+    youtube/                  Search client for the server proxy
+  components/                 Shared UI (buttons, states, toast, prompts, fields)
+  theme.ts                    Colors, spacing, touch sizes
 ```
 
-## Next steps
+## YouTube search
 
-- Replace the AsyncStorage store with a backend (for example Supabase or Firebase) so coaches and clients share data.
-- Add authentication and a coach-side view with a client list.
-- Add push notifications for session reminders (`expo-notifications`).
-- Build and ship with EAS: `npx eas-cli@latest build`.
+The app never calls YouTube directly. It calls `GET {EXPO_PUBLIC_MAT_REVIEW_API_URL}/youtube/search?q=…`, and your server adds the API key. Copy `.env.example` to `.env.local` and set the proxy URL. **Never put API keys in `EXPO_PUBLIC_*` variables**, because they're compiled into the app.

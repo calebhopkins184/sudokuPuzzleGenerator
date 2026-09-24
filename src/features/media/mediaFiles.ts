@@ -61,7 +61,10 @@ export function deleteMediaFile(fileName: string | null | undefined): void {
 /** Total bytes used by stored footage (for Settings). */
 export function mediaUsageBytes(): number {
   try {
-    return mediaDir().size ?? 0;
+    // Directory.size can be null on some platforms; sum the files instead.
+    return mediaDir()
+      .list()
+      .reduce((total, entry) => total + (entry instanceof File ? entry.size || 0 : 0), 0);
   } catch {
     return 0;
   }
