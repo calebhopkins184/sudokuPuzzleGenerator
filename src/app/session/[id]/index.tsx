@@ -2,7 +2,8 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 
 import { TextPrompt } from '@/components/TextPrompt';
-import { Button, IconButton, StateView } from '@/components/ui';
+import { IconButton, StateView } from '@/components/ui';
+import { MissingFootage, NoFootage } from '@/features/media/FootageStates';
 import { mediaExists } from '@/features/media/mediaFiles';
 import { useSession, useSessions } from '@/features/sessions/SessionsStore';
 
@@ -40,26 +41,9 @@ export default function EditorScreen() {
         }}
       />
       {!main ? (
-        <StateView
-          icon="film-outline"
-          title="No footage yet"
-          message="Import or record footage to start reviewing."
-        />
+        <NoFootage session={session} />
       ) : missing ? (
-        <StateView
-          icon="alert-circle-outline"
-          tone="warning"
-          title="Footage not found on this device"
-          message="The video file for this session is no longer available. Your notes and links are safe."
-        >
-          <Button
-            label="Remove missing footage"
-            variant="danger"
-            onPress={() =>
-              dispatch({ type: 'removeMedia', sessionId: session.id, mediaId: main.id })
-            }
-          />
-        </StateView>
+        <MissingFootage session={session} media={main} />
       ) : (
         <StateView
           icon="play-circle-outline"

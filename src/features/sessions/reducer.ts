@@ -14,7 +14,7 @@ export type SessionsAction =
   | { type: 'createSession'; session: Session }
   | { type: 'renameSession'; sessionId: string; title: string }
   | { type: 'deleteSession'; sessionId: string }
-  | { type: 'setMainMedia'; sessionId: string; media: MediaRef }
+  | { type: 'setMainMedia'; sessionId: string; media: MediaRef; keepPosition?: boolean }
   | { type: 'removeMedia'; sessionId: string; mediaId: string }
   | { type: 'addAnnotation'; sessionId: string; annotation: Annotation }
   | { type: 'deleteAnnotation'; sessionId: string; annotationId: string }
@@ -63,7 +63,12 @@ export function sessionsReducer(state: PersistedState, action: SessionsAction): 
         const media = { ...s.media };
         if (s.mainMediaId) delete media[s.mainMediaId];
         media[action.media.id] = action.media;
-        return { ...s, media, mainMediaId: action.media.id, lastPositionSec: 0 };
+        return {
+          ...s,
+          media,
+          mainMediaId: action.media.id,
+          lastPositionSec: action.keepPosition ? s.lastPositionSec : 0,
+        };
       });
 
     case 'removeMedia':
