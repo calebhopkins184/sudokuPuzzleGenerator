@@ -1,6 +1,9 @@
+import { router } from 'expo-router';
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
+import { Button } from '@/components/ui';
+import { MarksList } from '@/features/editor/MarksList';
 import type { MediaRef, Session } from '@/features/sessions/types';
 import { PlayerSurface } from '@/features/player/PlayerSurface';
 import { Timeline, type TimelineMarker } from '@/features/player/Timeline';
@@ -20,6 +23,14 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
     [session.annotations, session.clips],
   );
 
+  const addMark = (kind: 'note' | 'link') => {
+    main.player.pause();
+    router.push({
+      pathname: kind === 'note' ? '/session/[id]/note' : '/session/[id]/link',
+      params: { id: session.id, t: String(main.time) },
+    });
+  };
+
   const aspect = media.width && media.height ? media.width / media.height : 16 / 9;
 
   return (
@@ -38,6 +49,23 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
           <RatePicker main={main} disabled={!ready} />
         </View>
         <TransportBar main={main} disabled={!ready} />
+        <View style={styles.actions}>
+          <Button
+            label="Note"
+            icon="chatbox-ellipses-outline"
+            variant="secondary"
+            onPress={() => addMark('note')}
+            style={styles.action}
+          />
+          <Button
+            label="Link"
+            icon="link-outline"
+            variant="secondary"
+            onPress={() => addMark('link')}
+            style={styles.action}
+          />
+        </View>
+        <MarksList session={session} currentTime={main.time} onJump={main.seekTo} />
       </ScrollView>
     </View>
   );
@@ -45,6 +73,8 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
+  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginVertical: spacing.sm },
+  action: { flexGrow: 1, flexBasis: 100 },
   controls: { padding: spacing.lg, gap: spacing.sm },
   row: {
     flexDirection: 'row',

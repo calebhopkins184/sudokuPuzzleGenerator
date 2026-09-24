@@ -69,6 +69,14 @@ function AppStack() {
       <Stack.Screen name="settings" options={{ title: 'Settings' }} />
       <Stack.Screen name="session/new" options={{ title: 'New session', presentation: 'modal' }} />
       <Stack.Screen name="session/[id]/index" options={{ title: '' }} />
+      <Stack.Screen
+        name="session/[id]/note"
+        options={{ title: 'Add note', presentation: 'modal' }}
+      />
+      <Stack.Screen
+        name="session/[id]/link"
+        options={{ title: 'Add link', presentation: 'modal' }}
+      />
     </Stack>
   );
 }
