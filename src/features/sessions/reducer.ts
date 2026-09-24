@@ -16,6 +16,12 @@ export type SessionsAction =
   | { type: 'deleteSession'; sessionId: string }
   | { type: 'setMainMedia'; sessionId: string; media: MediaRef; keepPosition?: boolean }
   | { type: 'removeMedia'; sessionId: string; mediaId: string }
+  | {
+      type: 'updateMedia';
+      sessionId: string;
+      mediaId: string;
+      patch: Partial<Pick<MediaRef, 'durationSec' | 'width' | 'height'>>;
+    }
   | { type: 'addAnnotation'; sessionId: string; annotation: Annotation }
   | { type: 'deleteAnnotation'; sessionId: string; annotationId: string }
   | { type: 'addClip'; sessionId: string; clip: ClipInsert; media: MediaRef }
@@ -82,6 +88,18 @@ export function sessionsReducer(state: PersistedState, action: SessionsAction): 
           clips: s.clips.filter((c) => c.mediaId !== action.mediaId),
         };
       });
+
+    case 'updateMedia':
+      return updateSession(
+        state,
+        action.sessionId,
+        (s) => {
+          const current = s.media[action.mediaId];
+          if (!current) return s;
+          return { ...s, media: { ...s.media, [action.mediaId]: { ...current, ...action.patch } } };
+        },
+        false,
+      );
 
     case 'addAnnotation':
       return updateSession(state, action.sessionId, (s) => ({

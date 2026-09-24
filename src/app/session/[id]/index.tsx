@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { TextPrompt } from '@/components/TextPrompt';
 import { IconButton, StateView } from '@/components/ui';
+import { Editor } from '@/features/editor/Editor';
 import { MissingFootage, NoFootage } from '@/features/media/FootageStates';
 import { mediaExists } from '@/features/media/mediaFiles';
 import { useSession, useSessions } from '@/features/sessions/SessionsStore';
@@ -45,11 +46,7 @@ export default function EditorScreen() {
       ) : missing ? (
         <MissingFootage session={session} media={main} />
       ) : (
-        <StateView
-          icon="play-circle-outline"
-          title="Footage ready"
-          message="The player arrives in a later milestone."
-        />
+        <Editor key={main.id} session={session} media={main} />
       )}
       <TextPrompt
         visible={renaming}

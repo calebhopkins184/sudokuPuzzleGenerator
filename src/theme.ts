@@ -31,5 +31,5 @@ export const type = {
   heading: { fontSize: 18, fontWeight: '600' },
   body: { fontSize: 16, lineHeight: 22 },
   caption: { fontSize: 13, lineHeight: 18 },
-  mono: { fontSize: 14, fontVariant: ['tabular-nums'] },
+  mono: { fontSize: 14, fontVariant: ['tabular-nums'] as ['tabular-nums'] },
 } as const;
