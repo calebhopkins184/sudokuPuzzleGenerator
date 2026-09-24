@@ -1,8 +1,9 @@
 import { router } from 'expo-router';
 import { useMemo } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button } from '@/components/ui';
+import { Button, Heading, IconButton } from '@/components/ui';
 import { MarksList } from '@/features/editor/MarksList';
 import type { MediaRef, Session } from '@/features/sessions/types';
 import { ClipOverlay } from '@/features/player/ClipOverlay';
@@ -12,7 +13,13 @@ import { useSessions } from '@/features/sessions/SessionsStore';
 import { Timeline, type TimelineMarker } from '@/features/player/Timeline';
 import { RatePicker, TimeReadout, TransportBar } from '@/features/player/TransportBar';
 import { useMainPlayer } from '@/features/player/useMainPlayer';
-import { spacing } from '@/theme';
+import { clamp } from '@/lib/time';
+import { colors, spacing } from '@/theme';
+
+export function useIsLandscape(): boolean {
+  const { width, height } = useWindowDimensions();
+  return width > height;
+}
 
 export function Editor({ session, media }: { session: Session; media: MediaRef }) {
   const { state } = useSessions();
@@ -38,14 +45,50 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
   };
 
   const aspect = media.width && media.height ? media.width / media.height : 16 / 9;
+  const { width } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const landscape = useIsLandscape();
+  const panelWidth = clamp(width * 0.4, 300, 400);
 
+  // The tree is identical in both orientations; only styles change. Rotating therefore
+  // never remounts the player or clip overlay, and saved session data is untouched.
   return (
-    <View style={styles.container}>
-      <PlayerSurface main={main} style={{ width: '100%', aspectRatio: Math.max(aspect, 4 / 5) }}>
+    <View style={[styles.container, landscape && styles.containerLandscape]}>
+      <PlayerSurface
+        main={main}
+        style={
+          landscape
+            ? { flex: 1, marginLeft: insets.left }
+            : { width: '100%', aspectRatio: Math.max(aspect, 4 / 5) }
+        }
+      >
         <InsertBadge mode={main.mode} onReturn={main.seekTo} />
         <ClipOverlay main={main} session={session} />
       </PlayerSurface>
-      <ScrollView contentContainerStyle={styles.controls}>
+      <ScrollView
+        style={landscape ? [styles.panel, { width: panelWidth }] : undefined}
+        contentContainerStyle={[
+          styles.controls,
+          landscape && {
+            paddingTop: insets.top + spacing.sm,
+            paddingRight: insets.right + spacing.lg,
+          },
+          { paddingBottom: insets.bottom + spacing.xl },
+        ]}
+        keyboardShouldPersistTaps="handled"
+      >
+        {landscape ? (
+          <View style={styles.landscapeHeader}>
+            <IconButton
+              icon="chevron-back"
+              label="Back to sessions"
+              onPress={() => router.back()}
+            />
+            <Heading numberOfLines={1} style={{ flex: 1 }}>
+              {session.title}
+            </Heading>
+          </View>
+        ) : null}
         <Timeline
           duration={main.duration}
           time={main.time}
@@ -113,6 +156,14 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
+  containerLandscape: { flexDirection: 'row', backgroundColor: '#000' },
+  panel: { flexGrow: 0, backgroundColor: colors.background },
+  landscapeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    marginLeft: -spacing.sm,
+  },
   actions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginVertical: spacing.sm },
   action: { flexGrow: 1, flexBasis: 100 },
   controls: { padding: spacing.lg, gap: spacing.sm },

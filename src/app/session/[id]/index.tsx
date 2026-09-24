@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { TextPrompt } from '@/components/TextPrompt';
 import { IconButton, StateView } from '@/components/ui';
-import { Editor } from '@/features/editor/Editor';
+import { Editor, useIsLandscape } from '@/features/editor/Editor';
 import { MissingFootage, NoFootage } from '@/features/media/FootageStates';
 import { mediaExists } from '@/features/media/mediaFiles';
 import { useSession, useSessions } from '@/features/sessions/SessionsStore';
@@ -13,6 +13,7 @@ export default function EditorScreen() {
   const session = useSession(id);
   const { dispatch } = useSessions();
   const [renaming, setRenaming] = useState(false);
+  const landscape = useIsLandscape();
 
   if (!session) {
     return (
@@ -32,6 +33,8 @@ export default function EditorScreen() {
       <Stack.Screen
         options={{
           title: session.title,
+          // Landscape gives the footage the full height; the editor panel shows its own back button.
+          headerShown: !(landscape && main && !missing),
           headerRight: () => (
             <IconButton
               icon="create-outline"
