@@ -73,8 +73,8 @@ type Settings = {
 
 ## Playback semantics
 
-- **Replay at T** (window `w`): play `[max(0, T − w), T]` at 1×, then seek back to T and continue in the play or pause state it had before.
-- **Slow motion at T:** the same interval at `slowRate`, then back to T at 1×.
+- **Replay at T** (window `w`): play `[max(0, T − w), T]` at the coach's chosen speed, then seek back to T and continue in the play or pause state it had before.
+- **Slow motion at T:** the same interval at `slowRate`, then back to T at the chosen speed.
 - **Inserted clip at T:** when normal playback crosses T and auto-play is on, or when the user taps the clip marker, the main video pauses, the clip plays in an overlay, and playback returns to T.
 
 **Boundary cases.** Each one is covered by a unit test in `src/features/player/__tests__/engine.test.ts`:

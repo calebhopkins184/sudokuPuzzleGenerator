@@ -5,13 +5,16 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button } from '@/components/ui';
 import { MarksList } from '@/features/editor/MarksList';
 import type { MediaRef, Session } from '@/features/sessions/types';
+import { InsertBadge } from '@/features/player/InsertBadge';
 import { PlayerSurface } from '@/features/player/PlayerSurface';
+import { useSessions } from '@/features/sessions/SessionsStore';
 import { Timeline, type TimelineMarker } from '@/features/player/Timeline';
 import { RatePicker, TimeReadout, TransportBar } from '@/features/player/TransportBar';
 import { useMainPlayer } from '@/features/player/useMainPlayer';
 import { spacing } from '@/theme';
 
 export function Editor({ session, media }: { session: Session; media: MediaRef }) {
+  const { state } = useSessions();
   const main = useMainPlayer(session, media);
   const ready = main.status === 'readyToPlay';
 
@@ -35,12 +38,15 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
 
   return (
     <View style={styles.container}>
-      <PlayerSurface main={main} style={{ width: '100%', aspectRatio: Math.max(aspect, 4 / 5) }} />
+      <PlayerSurface main={main} style={{ width: '100%', aspectRatio: Math.max(aspect, 4 / 5) }}>
+        <InsertBadge mode={main.mode} onReturn={main.seekTo} />
+      </PlayerSurface>
       <ScrollView contentContainerStyle={styles.controls}>
         <Timeline
           duration={main.duration}
           time={main.time}
           markers={markers}
+          highlight={main.mode.kind === 'insert' ? main.mode : null}
           onScrubStart={main.scrubStart}
           onScrub={main.scrub}
         />
@@ -50,6 +56,24 @@ export function Editor({ session, media }: { session: Session; media: MediaRef }
         </View>
         <TransportBar main={main} disabled={!ready} />
         <View style={styles.actions}>
+          <Button
+            label={`Replay ${state.settings.replayWindowSec}s`}
+            icon="refresh"
+            variant="secondary"
+            onPress={() => main.insert('replay')}
+            disabled={!ready}
+            style={styles.action}
+            accessibilityHint="Replays the last few seconds, then returns to this moment"
+          />
+          <Button
+            label={`Slow-mo ${state.settings.slowRate}×`}
+            icon="timer-outline"
+            variant="secondary"
+            onPress={() => main.insert('slow')}
+            disabled={!ready}
+            style={styles.action}
+            accessibilityHint="Replays the last few seconds in slow motion, then returns"
+          />
           <Button
             label="Note"
             icon="chatbox-ellipses-outline"

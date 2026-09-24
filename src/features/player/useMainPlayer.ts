@@ -3,10 +3,27 @@ import { useVideoPlayer, type VideoPlayer } from 'expo-video';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
 
+import { useToast } from '@/components/Toast';
 import { mediaUri } from '@/features/media/mediaFiles';
 import { useSessions } from '@/features/sessions/SessionsStore';
 import type { MediaRef, Session } from '@/features/sessions/types';
 import { clamp } from '@/lib/time';
+
+import {
+  initialEngine,
+  onClipFailed,
+  onClipFinished,
+  onMainEnded,
+  onTimeUpdate,
+  playClipNow,
+  startInsert,
+  userSeek,
+  type EngineClip,
+  type Effect,
+  type InsertVariant,
+  type Mode,
+  type Step,
+} from './engine';
 
 export const PLAYBACK_RATES = [0.25, 0.5, 1] as const;
 export type PlaybackRate = (typeof PLAYBACK_RATES)[number];
@@ -17,9 +34,16 @@ const SAVE_POSITION_INTERVAL_MS = 5000;
 
 export type MainPlayer = ReturnType<typeof useMainPlayer>;
 
-/** Binds an expo-video player to a session's main footage. */
+/** Plays inserted clips on behalf of the engine (implemented by the clip overlay). */
+export type ClipController = { play: (clipId: string) => void; stop: () => void };
+
+/**
+ * Binds an expo-video player to a session's main footage and drives the playback
+ * engine (replay, slow motion, inserted clips) from its events.
+ */
 export function useMainPlayer(session: Session, media: MediaRef) {
-  const { dispatch } = useSessions();
+  const { state, dispatch } = useSessions();
+  const toast = useToast();
   const player = useVideoPlayer({ uri: mediaUri(media.fileName) }, (p) => {
     p.loop = false;
     p.timeUpdateEventInterval = 0.1;
@@ -38,9 +62,72 @@ export function useMainPlayer(session: Session, media: MediaRef) {
   // Latest known position; readable even after the native player is released on unmount.
   const positionRef = useRef(session.lastPositionSec);
 
+  const engine = useRef(initialEngine(session.lastPositionSec));
+  const [mode, setMode] = useState<Mode>(engine.current.mode);
+  const clipController = useRef<ClipController | null>(null);
+  // Fresh values for event callbacks without re-subscribing.
+  const live = useRef({ rate, duration, clips: [] as EngineClip[], settings: state.settings });
+  live.current = { rate, duration, clips: session.clips, settings: state.settings };
+
+  const run = useCallback(
+    (step: Step) => {
+      engine.current = step.state;
+      setMode(step.state.mode);
+      const apply = (effect: Effect) => {
+        switch (effect.type) {
+          case 'seek': {
+            const d = player.duration || live.current.duration;
+            const target = clamp(effect.time, 0, d > 0 ? d : effect.time);
+            player.currentTime = target;
+            positionRef.current = target;
+            setTime(target);
+            break;
+          }
+          case 'rate':
+            player.playbackRate = effect.rate;
+            break;
+          case 'play':
+            player.play();
+            break;
+          case 'pause':
+            player.pause();
+            break;
+          case 'playClip':
+            if (clipController.current) clipController.current.play(effect.clipId);
+            else
+              queueMicrotask(() =>
+                run(onClipFailed(engine.current, { baseRate: live.current.rate })),
+              );
+            break;
+          case 'stopClip':
+            clipController.current?.stop();
+            break;
+          case 'toast':
+            toast(effect.message);
+            break;
+        }
+      };
+      step.effects.forEach(apply);
+    },
+    [player, toast],
+  );
+
   useEventListener(player, 'timeUpdate', ({ currentTime }) => {
     positionRef.current = currentTime;
-    if (!scrubbing.current) setTime(currentTime);
+    if (scrubbing.current) return;
+    setTime(currentTime);
+    const step = onTimeUpdate(engine.current, {
+      time: currentTime,
+      playing: player.playing,
+      clips: live.current.clips,
+      autoPlayClips: live.current.settings.autoPlayClips,
+      baseRate: live.current.rate,
+    });
+    if (step.state !== engine.current || step.effects.length) run(step);
+  });
+
+  useEventListener(player, 'playToEnd', () => {
+    run(onMainEnded(engine.current, { duration: player.duration, baseRate: live.current.rate }));
   });
 
   useEventListener(player, 'sourceLoad', ({ duration: d }) => {
@@ -96,14 +183,10 @@ export function useMainPlayer(session: Session, media: MediaRef) {
     };
   }, [player, savePosition]);
 
+  /** User-initiated seek: cancels any replay or clip (the coach's intent wins). */
   const seekTo = useCallback(
-    (t: number) => {
-      const target = clamp(t, 0, player.duration || duration || t);
-      player.currentTime = target;
-      positionRef.current = target;
-      setTime(target);
-    },
-    [player, duration],
+    (t: number) => run(userSeek(engine.current, t, live.current.rate)),
+    [run],
   );
 
   const togglePlay = useCallback(() => {
@@ -129,16 +212,52 @@ export function useMainPlayer(session: Session, media: MediaRef) {
 
   const setRate = useCallback(
     (next: PlaybackRate) => {
-      player.playbackRate = next;
+      // During slow motion the insert owns the rate; the new speed applies on return.
+      const m = engine.current.mode;
+      if (!(m.kind === 'insert' && m.variant === 'slow')) player.playbackRate = next;
       setRateState(next);
     },
     [player],
   );
 
+  const insert = useCallback(
+    (variant: InsertVariant) =>
+      run(
+        startInsert(engine.current, {
+          variant,
+          now: player.currentTime,
+          duration: player.duration || live.current.duration,
+          playing: player.playing,
+          windowSec: live.current.settings.replayWindowSec,
+          slowRate: live.current.settings.slowRate,
+          baseRate: live.current.rate,
+        }),
+      ),
+    [player, run],
+  );
+
+  const playClip = useCallback(
+    (clip: EngineClip) => run(playClipNow(engine.current, clip, player.playing)),
+    [player, run],
+  );
+  const clipFinished = useCallback(
+    () => run(onClipFinished(engine.current, { baseRate: live.current.rate })),
+    [run],
+  );
+  const clipFailed = useCallback(
+    () => run(onClipFailed(engine.current, { baseRate: live.current.rate })),
+    [run],
+  );
+
   const scrubStart = useCallback(() => {
+    const inClip = engine.current.mode.kind === 'clip';
     scrubbing.current = { wasPlaying: player.playing, lastSeek: 0 };
+    if (engine.current.mode.kind !== 'normal') {
+      run(userSeek(engine.current, player.currentTime, live.current.rate));
+    }
+    if (inClip) scrubbing.current.wasPlaying = false;
     player.pause(); // Apple recommends pausing while scrubbing for smooth seeks.
-  }, [player]);
+  }, [player, run]);
 
   const scrub = useCallback(
     (t: number, final: boolean) => {
@@ -179,5 +298,11 @@ export function useMainPlayer(session: Session, media: MediaRef) {
     scrubStart,
     scrub,
     retry,
+    mode,
+    insert,
+    playClip,
+    clipFinished,
+    clipFailed,
+    clipController,
   };
 }
