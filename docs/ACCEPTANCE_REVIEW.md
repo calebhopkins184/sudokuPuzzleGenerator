@@ -36,7 +36,7 @@ This review checks the implementation against the checklist in [PRODUCT_CONTRACT
 3. **Recording uses the system camera UI** (`expo-image-picker`), not a custom camera screen. It's more reliable and needs fewer permissions. Switch to `expo-camera` if you need custom recording controls.
 4. **Replay plays at the coach's chosen speed.** Slow motion uses the Settings slow rate (0.25× or 0.5×). Both return to the original moment at the chosen speed.
 5. **Inserted clips auto-play** when normal playback crosses their moment. This can be turned off in Settings. Clips at the same moment play one after another.
-6. Missing footage: in a development build, remove a file from the app's `Documents/media` folder (Xcode → Devices → download the container, delete one video, replace the container). Reopen the session: it shows "Footage not found" with Relink and Remove, and the notes are still there.
+6. **Media paths are stored as file names** relative to `Documents/media`, because iOS changes the app container path when the app is updated.
 
 ## On-device test script (before TestFlight)
 
@@ -45,5 +45,5 @@ This review checks the implementation against the checklist in [PRODUCT_CONTRACT
 3. Replay at 0:00.1 should show a "Nothing to replay" toast. Replay at 0:02 should play 0:00–0:02 and return. Slow-mo at the last second should end parked at the end.
 4. Tap Replay three times quickly. It should always return to the first moment. Scrub during a slow-mo: the speed resets and your scrub position wins.
 5. Add two clips at the same moment. Play through them: both play, then playback returns once.
-6. Delete the app's copy of a video (by reinstalling via TestFlight without a backup). The session shows "Footage not found" with Relink and Remove.
+6. Missing footage: in a development build, remove a file from the app's `Documents/media` folder (Xcode → Devices → download the container, delete one video, replace the container). Reopen the session: it shows "Footage not found" with Relink and Remove, and the notes are still there.
 7. Rotate the phone mid-replay and mid-clip. Playback continues, and the controls fit on an iPhone SE.
