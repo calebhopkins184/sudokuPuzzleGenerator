@@ -7,14 +7,14 @@
 ## Pages
 
 - [Home](https://15daytrial.com/): Use free trials without getting charged, cancel subscriptions on iPhone, Android, PayPal, or a credit card, track renewals, and dispute unwanted charges.
-- [How to use free trials without getting charged](https://15daytrial.com/use-free-trials-without-getting-charged.html): Read the terms, set reminders, cancel early safely, and avoid common free trial traps.
-- [How to cancel subscriptions on iPhone, Android, PayPal, and more](https://15daytrial.com/how-to-cancel-subscriptions.html): Step-by-step cancellation for Apple, Google Play, PayPal, websites, and recurring card charges.
-- [How to track subscription renewals and free trials](https://15daytrial.com/track-subscription-renewals.html): Find hidden recurring charges, build a renewal tracker, set reminders, and audit regularly.
-- [How to dispute an unwanted subscription charge](https://15daytrial.com/dispute-a-subscription-charge.html): Merchant refunds, credit card disputes, debit card rights, deadlines, and where to complain.
-- [Auto-renewal laws and your subscription rights in the U.S.](https://15daytrial.com/auto-renewal-laws-and-your-rights.html): ROSCA, the vacated click-to-cancel rule, state auto-renewal laws, and what companies must disclose.
+- [How to use free trials without getting charged](https://15daytrial.com/use-free-trials-without-getting-charged): Read the terms, set reminders, cancel early safely, and avoid common free trial traps.
+- [How to cancel subscriptions on iPhone, Android, PayPal, and more](https://15daytrial.com/how-to-cancel-subscriptions): Step-by-step cancellation for Apple, Google Play, PayPal, websites, and recurring card charges.
+- [How to track subscription renewals and free trials](https://15daytrial.com/track-subscription-renewals): Find hidden recurring charges, build a renewal tracker, set reminders, and audit regularly.
+- [How to dispute an unwanted subscription charge](https://15daytrial.com/dispute-a-subscription-charge): Merchant refunds, credit card disputes, debit card rights, deadlines, and where to complain.
+- [Auto-renewal laws and your subscription rights in the U.S.](https://15daytrial.com/auto-renewal-laws-and-your-rights): ROSCA, the vacated click-to-cancel rule, state auto-renewal laws, and what companies must disclose.
 
 ## About
 
-- [About 15DayTrial](https://15daytrial.com/about.html): 15DayTrial is an independent consumer guide that helps people use free trials wisely, cancel subscriptions, track renewals, and dispute surprise charges.
-- [Contact](https://15daytrial.com/contact.html): How to reach 15DayTrial by email (hello@15daytrial.com).
-- [Privacy policy](https://15daytrial.com/privacy.html): What little data the site collects and how it is used.
+- [About 15DayTrial](https://15daytrial.com/about): 15DayTrial is an independent consumer guide that helps people use free trials wisely, cancel subscriptions, track renewals, and dispute surprise charges.
+- [Contact](https://15daytrial.com/contact): How to reach 15DayTrial by email (hello@15daytrial.com).
+- [Privacy policy](https://15daytrial.com/privacy): What little data the site collects and how it is used.

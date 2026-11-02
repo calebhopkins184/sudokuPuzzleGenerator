@@ -7,15 +7,15 @@ Creek Caffe is an editorial coffee education site with recipes given in grams an
 ## Pages
 
 - [Home](https://creekcaffe.com/): Overview with links to every brewing guide, a quick-start recipe table and coffee FAQ.
-- [Pour-Over Coffee Guide: Ratio, Grind and Technique](https://creekcaffe.com/pour-over-coffee-guide.html): A reliable pour-over recipe, plus how to adjust grind, water and pouring to fix sour or bitter cups.
-- [How to Use a French Press for Rich, Clean Coffee](https://creekcaffe.com/french-press-guide.html): The ratio, grind and steep time for full-bodied French press coffee without the sludge.
-- [Camp Coffee: Best Ways to Brew Coffee Outdoors](https://creekcaffe.com/camp-coffee-methods.html): Cowboy coffee, AeroPress, pour-over and more for the trail, with altitude, water safety and Leave No Trace tips.
-- [How to Make Cold Brew Coffee at Home](https://creekcaffe.com/cold-brew-coffee-guide.html): Concentrate and ready-to-drink ratios, steep times, filtering and storage for smooth cold brew.
-- [Choosing Coffee Beans and the Right Grind Size](https://creekcaffe.com/coffee-beans-and-grind-size.html): Arabica vs robusta, origins, processing, roast levels, freshness, storage and a grind chart for every brewer.
-- [Espresso Basics: How to Pull a Great Shot at Home](https://creekcaffe.com/espresso-basics.html): Dose, ratio, shot time, dialing in, milk steaming and the gear that actually matters.
+- [Pour-Over Coffee Guide: Ratio, Grind and Technique](https://creekcaffe.com/pour-over-coffee-guide): A reliable pour-over recipe, plus how to adjust grind, water and pouring to fix sour or bitter cups.
+- [How to Use a French Press for Rich, Clean Coffee](https://creekcaffe.com/french-press-guide): The ratio, grind and steep time for full-bodied French press coffee without the sludge.
+- [Camp Coffee: Best Ways to Brew Coffee Outdoors](https://creekcaffe.com/camp-coffee-methods): Cowboy coffee, AeroPress, pour-over and more for the trail, with altitude, water safety and Leave No Trace tips.
+- [How to Make Cold Brew Coffee at Home](https://creekcaffe.com/cold-brew-coffee-guide): Concentrate and ready-to-drink ratios, steep times, filtering and storage for smooth cold brew.
+- [Choosing Coffee Beans and the Right Grind Size](https://creekcaffe.com/coffee-beans-and-grind-size): Arabica vs robusta, origins, processing, roast levels, freshness, storage and a grind chart for every brewer.
+- [Espresso Basics: How to Pull a Great Shot at Home](https://creekcaffe.com/espresso-basics): Dose, ratio, shot time, dialing in, milk steaming and the gear that actually matters.
 
 ## Optional
 
-- [About](https://creekcaffe.com/about.html): Who runs Creek Caffe and how the content is written.
-- [Contact](https://creekcaffe.com/contact.html): Email hello@creekcaffe.com for questions and corrections.
-- [Privacy](https://creekcaffe.com/privacy.html): Privacy policy for creekcaffe.com.
+- [About](https://creekcaffe.com/about): Who runs Creek Caffe and how the content is written.
+- [Contact](https://creekcaffe.com/contact): Email hello@creekcaffe.com for questions and corrections.
+- [Privacy](https://creekcaffe.com/privacy): Privacy policy for creekcaffe.com.

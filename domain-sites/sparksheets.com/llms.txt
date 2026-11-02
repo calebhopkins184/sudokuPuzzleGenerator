@@ -7,14 +7,14 @@ SparkSheets.com is an independent tutorial site. Every tutorial includes copyabl
 ## Pages
 
 - [Home](https://sparksheets.com/): Step-by-step Excel and Google Sheets tutorials: XLOOKUP vs VLOOKUP, pivot tables, conditional formatting, a budget spreadsheet, and a formula cheat sheet.
-- [XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets](https://sparksheets.com/xlookup-vs-vlookup.html): Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.
-- [Pivot tables in Excel and Google Sheets: a beginner's guide](https://sparksheets.com/pivot-tables-guide.html): Prepare data, build a pivot, group dates, show percentages, and refresh results.
-- [Conditional formatting in Excel and Google Sheets, with formula examples](https://sparksheets.com/conditional-formatting-guide.html): Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.
-- [How to make a budget spreadsheet in Excel or Google Sheets](https://sparksheets.com/budget-spreadsheet-tutorial.html): Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.
-- [Essential Excel and Google Sheets formulas cheat sheet](https://sparksheets.com/spreadsheet-formulas-cheat-sheet.html): Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.
+- [XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets](https://sparksheets.com/xlookup-vs-vlookup): Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.
+- [Pivot tables in Excel and Google Sheets: a beginner's guide](https://sparksheets.com/pivot-tables-guide): Prepare data, build a pivot, group dates, show percentages, and refresh results.
+- [Conditional formatting in Excel and Google Sheets, with formula examples](https://sparksheets.com/conditional-formatting-guide): Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.
+- [How to make a budget spreadsheet in Excel or Google Sheets](https://sparksheets.com/budget-spreadsheet-tutorial): Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.
+- [Essential Excel and Google Sheets formulas cheat sheet](https://sparksheets.com/spreadsheet-formulas-cheat-sheet): Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.
 
 ## About
 
-- [About SparkSheets](https://sparksheets.com/about.html): SparkSheets is an independent tutorial site teaching practical Excel and Google Sheets skills with copyable formulas and clear notes on how the two apps differ.
-- [Contact](https://sparksheets.com/contact.html): How to reach SparkSheets by email (hello@sparksheets.com).
-- [Privacy policy](https://sparksheets.com/privacy.html): What little data the site collects and how it is used.
+- [About SparkSheets](https://sparksheets.com/about): SparkSheets is an independent tutorial site teaching practical Excel and Google Sheets skills with copyable formulas and clear notes on how the two apps differ.
+- [Contact](https://sparksheets.com/contact): How to reach SparkSheets by email (hello@sparksheets.com).
+- [Privacy policy](https://sparksheets.com/privacy): What little data the site collects and how it is used.

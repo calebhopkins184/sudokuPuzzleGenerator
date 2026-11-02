@@ -5,11 +5,11 @@
 ## Pages
 
 - [Home](https://byebyespam.com/): Overview of every ByeByeSpam guide plus quick answers to common spam questions.
-- [How to stop spam emails in Gmail and Outlook](https://byebyespam.com/stop-spam-emails-gmail-outlook.html): Report spam, block senders, create filters, unsubscribe safely, and use aliases in Gmail and Outlook.
-- [How to stop robocalls and use the Do Not Call Registry](https://byebyespam.com/stop-robocalls-do-not-call-registry.html): National Do Not Call Registry explained, phone and carrier call blocking, and reporting illegal calls.
-- [How to stop spam texts: forward to 7726, filter, and block](https://byebyespam.com/report-spam-texts-7726.html): How 7726 spam reporting works, text filtering on iPhone and Android, and common text scams.
-- [Data broker opt-out guide: remove your info from people-search sites](https://byebyespam.com/data-broker-opt-out-guide.html): How to find and remove your listings from people-search sites and data brokers, manually or with a service.
-- [How to spot phishing emails and fake links](https://byebyespam.com/how-to-spot-phishing-emails.html): Red flags of phishing, how to check senders and links safely, and what to do after clicking.
-- [About ByeByeSpam](https://byebyespam.com/about.html): Who runs ByeByeSpam, how guides are researched, and our independence.
-- [Contact ByeByeSpam](https://byebyespam.com/contact.html): How to reach the ByeByeSpam team by email.
-- [Privacy Policy](https://byebyespam.com/privacy.html): How ByeByeSpam handles visitor data: minimal collection, no selling of data.
+- [How to stop spam emails in Gmail and Outlook](https://byebyespam.com/stop-spam-emails-gmail-outlook): Report spam, block senders, create filters, unsubscribe safely, and use aliases in Gmail and Outlook.
+- [How to stop robocalls and use the Do Not Call Registry](https://byebyespam.com/stop-robocalls-do-not-call-registry): National Do Not Call Registry explained, phone and carrier call blocking, and reporting illegal calls.
+- [How to stop spam texts: forward to 7726, filter, and block](https://byebyespam.com/report-spam-texts-7726): How 7726 spam reporting works, text filtering on iPhone and Android, and common text scams.
+- [Data broker opt-out guide: remove your info from people-search sites](https://byebyespam.com/data-broker-opt-out-guide): How to find and remove your listings from people-search sites and data brokers, manually or with a service.
+- [How to spot phishing emails and fake links](https://byebyespam.com/how-to-spot-phishing-emails): Red flags of phishing, how to check senders and links safely, and what to do after clicking.
+- [About ByeByeSpam](https://byebyespam.com/about): Who runs ByeByeSpam, how guides are researched, and our independence.
+- [Contact ByeByeSpam](https://byebyespam.com/contact): How to reach the ByeByeSpam team by email.
+- [Privacy Policy](https://byebyespam.com/privacy): How ByeByeSpam handles visitor data: minimal collection, no selling of data.

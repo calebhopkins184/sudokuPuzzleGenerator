@@ -7,14 +7,14 @@ Dad GIFs is an editorial humor site. All jokes are family-friendly. The site use
 ## Pages
 
 - [Home](https://dadgifs.com/): Overview with featured jokes, links to every collection and guide, and a dad humor FAQ.
-- [The Best Dad Jokes, Sorted by Category](https://dadgifs.com/best-dad-jokes.html): Over 60 clean, groan-worthy dad jokes on food, animals, science, work, sports and more.
-- [Dad Jokes for Kids: Clean, Silly and School-Safe](https://dadgifs.com/dad-jokes-for-kids.html): School jokes, animal jokes, knock-knocks and riddles for kids, plus tips for joke-telling together.
-- [How to Write Dad Puns (and Deliver Them Shamelessly)](https://dadgifs.com/how-to-write-dad-puns.html): The types of puns, a simple formula for making your own, and how to deliver them for maximum groan.
-- [Father’s Day Gift Ideas for Every Kind of Dad](https://dadgifs.com/fathers-day-gift-ideas.html): Gift categories for every kind of dad and budget, plus when Father's Day falls around the world.
-- [Dad Memes and GIF Culture, Explained](https://dadgifs.com/dad-memes-and-gif-culture.html): A short history of the GIF, how dad memes work, and how to share GIFs legally and accessibly.
+- [The Best Dad Jokes, Sorted by Category](https://dadgifs.com/best-dad-jokes): Over 60 clean, groan-worthy dad jokes on food, animals, science, work, sports and more.
+- [Dad Jokes for Kids: Clean, Silly and School-Safe](https://dadgifs.com/dad-jokes-for-kids): School jokes, animal jokes, knock-knocks and riddles for kids, plus tips for joke-telling together.
+- [How to Write Dad Puns (and Deliver Them Shamelessly)](https://dadgifs.com/how-to-write-dad-puns): The types of puns, a simple formula for making your own, and how to deliver them for maximum groan.
+- [Father’s Day Gift Ideas for Every Kind of Dad](https://dadgifs.com/fathers-day-gift-ideas): Gift categories for every kind of dad and budget, plus when Father's Day falls around the world.
+- [Dad Memes and GIF Culture, Explained](https://dadgifs.com/dad-memes-and-gif-culture): A short history of the GIF, how dad memes work, and how to share GIFs legally and accessibly.
 
 ## Optional
 
-- [About](https://dadgifs.com/about.html): Who runs Dad GIFs and how the content is written.
-- [Contact](https://dadgifs.com/contact.html): Email hello@dadgifs.com for questions and corrections.
-- [Privacy](https://dadgifs.com/privacy.html): Privacy policy for dadgifs.com.
+- [About](https://dadgifs.com/about): Who runs Dad GIFs and how the content is written.
+- [Contact](https://dadgifs.com/contact): Email hello@dadgifs.com for questions and corrections.
+- [Privacy](https://dadgifs.com/privacy): Privacy policy for dadgifs.com.

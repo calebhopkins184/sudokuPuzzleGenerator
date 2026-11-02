@@ -29,4 +29,4 @@ See `SPEC.md` for the conventions every site follows (meta tags, JSON-LD, sitema
 ## Before launch
 - Replace `<!-- TODO -->` placeholders on each `contact.html` with a real form handler (mailto forms are a stopgap).
 - Fact-check time-sensitive details (laws, fees, release dates) and click-test outbound links.
-- After deploying, add each domain to Google Search Console and Bing Webmaster Tools and submit `/sitemap.xml`.
+- Deploy with Cloudflare Pages — see `DEPLOY.md`.

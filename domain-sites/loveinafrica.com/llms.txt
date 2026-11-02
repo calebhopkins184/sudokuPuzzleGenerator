@@ -7,15 +7,15 @@ Love in Africa is an editorial travel and culture site for couples. It is not a 
 ## Pages
 
 - [Home](https://loveinafrica.com/): Overview with links to every honeymoon, wedding and itinerary guide, plus an FAQ for couples.
-- [The Best African Honeymoon Destinations](https://loveinafrica.com/african-honeymoon-destinations.html): Zanzibar, Seychelles, Mauritius, the Cape Winelands and more, compared by style, season and mood.
-- [Zanzibar Honeymoon Guide: Beaches, Stone Town and Spice](https://loveinafrica.com/zanzibar-honeymoon-guide.html): Which coast to choose, how the tides work, what to do and how to travel respectfully as a couple.
-- [Safari Honeymoon Guide: Planning a Romantic Bush-and-Beach Trip](https://loveinafrica.com/safari-honeymoon-guide.html): Romantic camp choices, special experiences and the best ways to pair a safari with a beach.
-- [Destination Weddings in Africa: How to Plan One](https://loveinafrica.com/destination-weddings-in-africa.html): Legal vs symbolic ceremonies, paperwork, venues, guest logistics and timelines for marrying in Africa.
-- [African Wedding Traditions: A Respectful Introduction](https://loveinafrica.com/african-wedding-traditions.html): Lobola, Nigerian and Ghanaian ceremonies, Moroccan henna nights, and how to honor traditions thoughtfully.
-- [Romantic Africa Itineraries: Six Sample Trips for Couples](https://loveinafrica.com/romantic-africa-itineraries.html): Day-by-day outlines for honeymoons and anniversaries, from Serengeti-and-Zanzibar to Morocco.
+- [The Best African Honeymoon Destinations](https://loveinafrica.com/african-honeymoon-destinations): Zanzibar, Seychelles, Mauritius, the Cape Winelands and more, compared by style, season and mood.
+- [Zanzibar Honeymoon Guide: Beaches, Stone Town and Spice](https://loveinafrica.com/zanzibar-honeymoon-guide): Which coast to choose, how the tides work, what to do and how to travel respectfully as a couple.
+- [Safari Honeymoon Guide: Planning a Romantic Bush-and-Beach Trip](https://loveinafrica.com/safari-honeymoon-guide): Romantic camp choices, special experiences and the best ways to pair a safari with a beach.
+- [Destination Weddings in Africa: How to Plan One](https://loveinafrica.com/destination-weddings-in-africa): Legal vs symbolic ceremonies, paperwork, venues, guest logistics and timelines for marrying in Africa.
+- [African Wedding Traditions: A Respectful Introduction](https://loveinafrica.com/african-wedding-traditions): Lobola, Nigerian and Ghanaian ceremonies, Moroccan henna nights, and how to honor traditions thoughtfully.
+- [Romantic Africa Itineraries: Six Sample Trips for Couples](https://loveinafrica.com/romantic-africa-itineraries): Day-by-day outlines for honeymoons and anniversaries, from Serengeti-and-Zanzibar to Morocco.
 
 ## Optional
 
-- [About](https://loveinafrica.com/about.html): Who runs Love in Africa and how the content is written.
-- [Contact](https://loveinafrica.com/contact.html): Email hello@loveinafrica.com for questions and corrections.
-- [Privacy](https://loveinafrica.com/privacy.html): Privacy policy for loveinafrica.com.
+- [About](https://loveinafrica.com/about): Who runs Love in Africa and how the content is written.
+- [Contact](https://loveinafrica.com/contact): Email hello@loveinafrica.com for questions and corrections.
+- [Privacy](https://loveinafrica.com/privacy): Privacy policy for loveinafrica.com.

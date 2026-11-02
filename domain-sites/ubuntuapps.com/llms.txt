@@ -5,11 +5,11 @@
 ## Pages
 
 - [Home](https://ubuntuapps.com/): Overview of UbuntuApps guides and quick answers about installing software on Ubuntu.
-- [The best apps for Ubuntu, by category](https://ubuntuapps.com/best-ubuntu-apps.html): Recommended Ubuntu apps for browsing, office, media, creative work, development, notes, and gaming.
-- [How to install apps on Ubuntu: apt vs snap vs Flatpak vs .deb vs AppImage](https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html): Compare Ubuntu packaging formats with commands for apt, snap, Flatpak, .deb files, and AppImage.
-- [Things to do after installing Ubuntu: a practical checklist](https://ubuntuapps.com/things-to-install-after-ubuntu.html): Post-install checklist: updates, drivers, codecs, backups, firewall, Flatpak, and essential apps.
-- [Ubuntu alternatives to Windows and Mac apps](https://ubuntuapps.com/ubuntu-alternatives-windows-mac-apps.html): Linux replacements for common Windows and macOS apps, plus Wine, Bottles, Proton, and VMs.
-- [Ubuntu LTS releases explained: support timelines and upgrades](https://ubuntuapps.com/ubuntu-lts-releases.html): Ubuntu LTS vs interim releases, support timelines, Ubuntu Pro ESM, and safe upgrade steps.
-- [About UbuntuApps](https://ubuntuapps.com/about.html): What UbuntuApps is, how guides are written, and our independence from Canonical.
-- [Contact UbuntuApps](https://ubuntuapps.com/contact.html): How to reach the UbuntuApps team by email.
-- [Privacy Policy](https://ubuntuapps.com/privacy.html): How UbuntuApps handles visitor data: minimal collection, no selling of data.
+- [The best apps for Ubuntu, by category](https://ubuntuapps.com/best-ubuntu-apps): Recommended Ubuntu apps for browsing, office, media, creative work, development, notes, and gaming.
+- [How to install apps on Ubuntu: apt vs snap vs Flatpak vs .deb vs AppImage](https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak): Compare Ubuntu packaging formats with commands for apt, snap, Flatpak, .deb files, and AppImage.
+- [Things to do after installing Ubuntu: a practical checklist](https://ubuntuapps.com/things-to-install-after-ubuntu): Post-install checklist: updates, drivers, codecs, backups, firewall, Flatpak, and essential apps.
+- [Ubuntu alternatives to Windows and Mac apps](https://ubuntuapps.com/ubuntu-alternatives-windows-mac-apps): Linux replacements for common Windows and macOS apps, plus Wine, Bottles, Proton, and VMs.
+- [Ubuntu LTS releases explained: support timelines and upgrades](https://ubuntuapps.com/ubuntu-lts-releases): Ubuntu LTS vs interim releases, support timelines, Ubuntu Pro ESM, and safe upgrade steps.
+- [About UbuntuApps](https://ubuntuapps.com/about): What UbuntuApps is, how guides are written, and our independence from Canonical.
+- [Contact UbuntuApps](https://ubuntuapps.com/contact): How to reach the UbuntuApps team by email.
+- [Privacy Policy](https://ubuntuapps.com/privacy): How UbuntuApps handles visitor data: minimal collection, no selling of data.

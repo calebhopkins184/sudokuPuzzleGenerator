@@ -7,11 +7,11 @@ All content is general education, not financial, tax or legal advice. The site d
 ## Pages
 
 - [Home](https://financenorth.org/): Overview of Finance North's Alaska personal finance guides with key facts and FAQs.
-- [Alaska Permanent Fund Dividend (PFD): A Plain-Language Guide](https://financenorth.org/permanent-fund-dividend-guide.html): Who qualifies, when to apply, how the amount is decided, how the PFD is taxed and how to put it to good use.
-- [How to Budget for Alaska's High Cost of Living](https://financenorth.org/alaska-cost-of-living-budget.html): A step-by-step budget built for Alaska: seasonal income, shipping costs, winter sinking funds and rural realities.
-- [Alaska Home Heating Costs: How to Compare Fuels and Cut Your Bill](https://financenorth.org/alaska-heating-costs.html): A simple formula to compare heating oil, gas, propane, wood and electric heat, plus weatherization and assistance programs.
-- [Alaska Taxes Explained: What Alaskans Do and Don't Pay](https://financenorth.org/alaska-taxes-explained.html): No state income tax and no statewide sales tax, but local sales, property and excise taxes still matter.
-- [Saving for Travel From Alaska: Flights, Funds and Smart Planning](https://financenorth.org/saving-for-travel-alaska.html): Travel sinking funds, booking strategies, rewards basics and an emergency travel plan for remote living.
-- [About](https://financenorth.org/about.html): Who runs Finance North, its educational mission, editorial standards and disclaimer.
-- [Contact](https://financenorth.org/contact.html): How to reach Finance North by email.
-- [Privacy Policy](https://financenorth.org/privacy.html): What data the site collects and how it is used.
+- [Alaska Permanent Fund Dividend (PFD): A Plain-Language Guide](https://financenorth.org/permanent-fund-dividend-guide): Who qualifies, when to apply, how the amount is decided, how the PFD is taxed and how to put it to good use.
+- [How to Budget for Alaska's High Cost of Living](https://financenorth.org/alaska-cost-of-living-budget): A step-by-step budget built for Alaska: seasonal income, shipping costs, winter sinking funds and rural realities.
+- [Alaska Home Heating Costs: How to Compare Fuels and Cut Your Bill](https://financenorth.org/alaska-heating-costs): A simple formula to compare heating oil, gas, propane, wood and electric heat, plus weatherization and assistance programs.
+- [Alaska Taxes Explained: What Alaskans Do and Don't Pay](https://financenorth.org/alaska-taxes-explained): No state income tax and no statewide sales tax, but local sales, property and excise taxes still matter.
+- [Saving for Travel From Alaska: Flights, Funds and Smart Planning](https://financenorth.org/saving-for-travel-alaska): Travel sinking funds, booking strategies, rewards basics and an emergency travel plan for remote living.
+- [About](https://financenorth.org/about): Who runs Finance North, its educational mission, editorial standards and disclaimer.
+- [Contact](https://financenorth.org/contact): How to reach Finance North by email.
+- [Privacy Policy](https://financenorth.org/privacy): What data the site collects and how it is used.

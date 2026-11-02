@@ -7,15 +7,15 @@ StockQB.com is an independent investing-education site. It does not recommend sp
 ## Pages
 
 - [Home](https://stockqb.com/): StockQB is your stock market quarterback: learn to read stock quotes, P/E ratios, ETFs vs mutual funds, dividends, order types, and build a beginner portfolio.
-- [How to read a stock quote: every field explained](https://stockqb.com/how-to-read-a-stock-quote.html): Ticker, bid/ask, volume, market cap, 52-week range, and the other numbers on a quote page.
-- [P/E ratio explained: what it tells you about a stock's valuation](https://stockqb.com/pe-ratio-explained.html): Trailing vs forward P/E, PEG, earnings yield, CAPE, and the pitfalls of valuation shortcuts.
-- [ETFs vs mutual funds: the key differences explained](https://stockqb.com/etfs-vs-mutual-funds.html): How ETFs and mutual funds trade, what they cost, how they are taxed, and which fits you.
-- [Dividend investing basics: yield, key dates, and taxes](https://stockqb.com/dividend-investing-basics.html): How dividends are paid, the ex-dividend date, yield and payout ratio, taxes, DRIPs, and yield traps.
-- [Stock order types: market, limit, stop, and stop-limit orders](https://stockqb.com/stock-order-types.html): Market, limit, stop, stop-limit, and trailing stop orders, plus day vs GTC, with examples.
-- [How to build a beginner stock portfolio: a step-by-step playbook](https://stockqb.com/beginner-portfolio-playbook.html): Choose an account, set an asset allocation, pick low-cost funds, automate, and rebalance.
+- [How to read a stock quote: every field explained](https://stockqb.com/how-to-read-a-stock-quote): Ticker, bid/ask, volume, market cap, 52-week range, and the other numbers on a quote page.
+- [P/E ratio explained: what it tells you about a stock's valuation](https://stockqb.com/pe-ratio-explained): Trailing vs forward P/E, PEG, earnings yield, CAPE, and the pitfalls of valuation shortcuts.
+- [ETFs vs mutual funds: the key differences explained](https://stockqb.com/etfs-vs-mutual-funds): How ETFs and mutual funds trade, what they cost, how they are taxed, and which fits you.
+- [Dividend investing basics: yield, key dates, and taxes](https://stockqb.com/dividend-investing-basics): How dividends are paid, the ex-dividend date, yield and payout ratio, taxes, DRIPs, and yield traps.
+- [Stock order types: market, limit, stop, and stop-limit orders](https://stockqb.com/stock-order-types): Market, limit, stop, stop-limit, and trailing stop orders, plus day vs GTC, with examples.
+- [How to build a beginner stock portfolio: a step-by-step playbook](https://stockqb.com/beginner-portfolio-playbook): Choose an account, set an asset allocation, pick low-cost funds, automate, and rebalance.
 
 ## About
 
-- [About StockQB](https://stockqb.com/about.html): StockQB is an independent investing education site that explains stock market basics in plain language with hypothetical examples. No stock picks and no hype.
-- [Contact](https://stockqb.com/contact.html): How to reach StockQB by email (hello@stockqb.com).
-- [Privacy policy](https://stockqb.com/privacy.html): What little data the site collects and how it is used.
+- [About StockQB](https://stockqb.com/about): StockQB is an independent investing education site that explains stock market basics in plain language with hypothetical examples. No stock picks and no hype.
+- [Contact](https://stockqb.com/contact): How to reach StockQB by email (hello@stockqb.com).
+- [Privacy policy](https://stockqb.com/privacy): What little data the site collects and how it is used.

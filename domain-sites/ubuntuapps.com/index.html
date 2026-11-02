@@ -103,7 +103,7 @@
     <a class="brand" href="/"><svg class="logo" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#1e1b3a"/><path d="M8 11l6 5-6 5" fill="none" stroke="#ff9e4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 22h8" stroke="#e9e6ff" stroke-width="2.6" stroke-linecap="round"/></svg><span class="brand-name">UbuntuApps</span></a>
     <nav class="site-nav" aria-label="Main">
       <ul>
-        <li><a href="/" aria-current="page">Home</a></li><li><a href="/best-ubuntu-apps.html">Best apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html">Installing apps</a></li><li><a href="/things-to-install-after-ubuntu.html">After install</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
+        <li><a href="/" aria-current="page">Home</a></li><li><a href="/best-ubuntu-apps">Best apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak">Installing apps</a></li><li><a href="/things-to-install-after-ubuntu">After install</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps">Alternatives</a></li><li><a href="/ubuntu-lts-releases">LTS releases</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -113,17 +113,17 @@
   <p class="eyebrow">$ sudo apt install good-advice</p>
   <h1>Ubuntu apps: find, install, and choose the right software</h1>
   <p class="hero-lede">Ubuntu gives you several ways to install software, and thousands of apps to choose from. These guides cut through it: which apps are worth installing, which packaging format to use and why, what to do right after a fresh install, and which release you should be running.</p>
-  <p><a class="button" href="/things-to-install-after-ubuntu.html">Just installed Ubuntu?</a> <a class="button button-ghost" href="/install-apps-ubuntu-apt-snap-flatpak.html">apt vs snap vs Flatpak</a></p>
+  <p><a class="button" href="/things-to-install-after-ubuntu">Just installed Ubuntu?</a> <a class="button button-ghost" href="/install-apps-ubuntu-apt-snap-flatpak">apt vs snap vs Flatpak</a></p>
 </section>
 
 <section aria-labelledby="guides-h">
   <h2 id="guides-h">Guides</h2>
   <div class="card-grid">
-    <a class="card" href="/best-ubuntu-apps.html"><h3>Best apps for Ubuntu</h3><p>Reliable picks for browsing, office work, media, creative work, development, and gaming.</p></a>
-    <a class="card" href="/install-apps-ubuntu-apt-snap-flatpak.html"><h3>apt vs snap vs Flatpak vs .deb vs AppImage</h3><p>How each format works, the commands you need, and when to use which.</p></a>
-    <a class="card" href="/things-to-install-after-ubuntu.html"><h3>Things to do after installing Ubuntu</h3><p>Updates, drivers, codecs, backups, firewall, and the essential apps for a new system.</p></a>
-    <a class="card" href="/ubuntu-alternatives-windows-mac-apps.html"><h3>Ubuntu alternatives to Windows and Mac apps</h3><p>What to use instead of Office, Photoshop, Premiere, and more, plus Wine and Proton.</p></a>
-    <a class="card" href="/ubuntu-lts-releases.html"><h3>Ubuntu LTS releases explained</h3><p>Support timelines, LTS vs interim releases, Ubuntu Pro, and how to upgrade safely.</p></a>
+    <a class="card" href="/best-ubuntu-apps"><h3>Best apps for Ubuntu</h3><p>Reliable picks for browsing, office work, media, creative work, development, and gaming.</p></a>
+    <a class="card" href="/install-apps-ubuntu-apt-snap-flatpak"><h3>apt vs snap vs Flatpak vs .deb vs AppImage</h3><p>How each format works, the commands you need, and when to use which.</p></a>
+    <a class="card" href="/things-to-install-after-ubuntu"><h3>Things to do after installing Ubuntu</h3><p>Updates, drivers, codecs, backups, firewall, and the essential apps for a new system.</p></a>
+    <a class="card" href="/ubuntu-alternatives-windows-mac-apps"><h3>Ubuntu alternatives to Windows and Mac apps</h3><p>What to use instead of Office, Photoshop, Premiere, and more, plus Wine and Proton.</p></a>
+    <a class="card" href="/ubuntu-lts-releases"><h3>Ubuntu LTS releases explained</h3><p>Support timelines, LTS vs interim releases, Ubuntu Pro, and how to upgrade safely.</p></a>
   </div>
 </section>
 
@@ -155,7 +155,7 @@ sudo apt remove vlc &amp;&amp; sudo apt autoremove</code></pre>
     <li><strong>Flathub</strong> (Flatpak): a cross-distribution app store, popular with GNOME and KDE app developers. Not enabled on Ubuntu by default.</li>
     <li><strong>Developer websites</strong>: official .deb packages, repositories, or AppImages for apps such as Chrome, VS Code, Steam, and Obsidian.</li>
   </ul>
-  <p>Our rule of thumb: install from the official source closest to the developer, avoid random download sites, and stick to one format per app so updates stay predictable. The <a href="/install-apps-ubuntu-apt-snap-flatpak.html">packaging guide</a> explains the tradeoffs in detail, and the <a href="/ubuntu-alternatives-windows-mac-apps.html">alternatives guide</a> helps if you're coming from Windows or macOS.</p>
+  <p>Our rule of thumb: install from the official source closest to the developer, avoid random download sites, and stick to one format per app so updates stay predictable. The <a href="/install-apps-ubuntu-apt-snap-flatpak">packaging guide</a> explains the tradeoffs in detail, and the <a href="/ubuntu-alternatives-windows-mac-apps">alternatives guide</a> helps if you're coming from Windows or macOS.</p>
 </section>
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2><div class="faq-item"><h3>What is the easiest way to install apps on Ubuntu?</h3><p>Open App Center, search for the app, and click Install. For apps not listed there, use <code>sudo apt install</code> in a terminal or download the developer's official .deb package.</p></div><div class="faq-item"><h3>Should I use snap or apt?</h3><p>Use apt for system tools and libraries and for most traditional desktop apps in the Ubuntu archive. Snaps are handy for apps that update quickly, such as browsers and developer tools, because the publisher ships updates directly. Both are maintained and safe when the source is official.</p></div><div class="faq-item"><h3>Does Ubuntu support Flatpak?</h3><p>Yes, but it isn't set up by default. Install the <code>flatpak</code> package and add the Flathub repository, then you can install Flatpak apps from the terminal or from GNOME Software with the Flatpak plugin.</p></div><div class="faq-item"><h3>Can I run Windows apps on Ubuntu?</h3><p>Many Windows programs run through Wine or a Wine front end like Bottles, and Steam's Proton runs a large number of Windows games. Some apps, especially those with anti-cheat or deep system integration, don't work, so check native or web alternatives first.</p></div><div class="faq-item"><h3>Which Ubuntu version should I install?</h3><p>Most people should install the latest LTS (long-term support) release, which gets five years of standard security updates. Interim releases get only nine months of support and are best for people who want the newest features.</p></div><div class="faq-item"><h3>Is Ubuntu software free?</h3><p>Ubuntu itself and the vast majority of apps in its repositories are free and open source. Some apps available for Ubuntu, such as certain commercial tools or games, are proprietary or paid.</p></div></section>
 </main>
@@ -167,14 +167,14 @@ sudo apt remove vlc &amp;&amp; sudo apt autoremove</code></pre>
     </div>
     <nav aria-label="Guides">
       <p class="footer-heading">Guides</p>
-      <ul><li><a href="/best-ubuntu-apps.html">Best Ubuntu apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html">apt vs snap vs Flatpak</a></li><li><a href="/things-to-install-after-ubuntu.html">After installing Ubuntu</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Windows &amp; Mac alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li></ul>
+      <ul><li><a href="/best-ubuntu-apps">Best Ubuntu apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak">apt vs snap vs Flatpak</a></li><li><a href="/things-to-install-after-ubuntu">After installing Ubuntu</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps">Windows &amp; Mac alternatives</a></li><li><a href="/ubuntu-lts-releases">LTS releases</a></li></ul>
     </nav>
     <nav aria-label="Site">
       <p class="footer-heading">Site</p>
       <ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy</a></li>
       </ul>
     </nav>
   </div>
