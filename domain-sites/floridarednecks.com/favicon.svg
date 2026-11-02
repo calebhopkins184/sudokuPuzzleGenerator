@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Florida Rednecks">
+<rect width="64" height="64" rx="10" fill="#3d4a26"/>
+<rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#e8d9b5" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="32" y="44" text-anchor="middle" font-family="Rockwell, 'Courier New', serif" font-size="30" font-weight="700" fill="#e07a2e">FR</text>
+</svg>
