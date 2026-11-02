@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excel and Google Sheets Tutorials and Formulas | SparkSheets</title>
+<meta name="description" content="Step-by-step Excel and Google Sheets tutorials: XLOOKUP vs VLOOKUP, pivot tables, conditional formatting, a budget spreadsheet, and a formula cheat sheet.">
+<link rel="canonical" href="https://sparksheets.com/">
+<meta property="og:title" content="Excel and Google Sheets Tutorials and Formulas | SparkSheets">
+<meta property="og:description" content="Step-by-step Excel and Google Sheets tutorials: XLOOKUP vs VLOOKUP, pivot tables, conditional formatting, a budget spreadsheet, and a formula cheat sheet.">
+<meta property="og:url" content="https://sparksheets.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Excel and Google Sheets Tutorials and Formulas | SparkSheets">
+<meta name="twitter:description" content="Step-by-step Excel and Google Sheets tutorials: XLOOKUP vs VLOOKUP, pivot tables, conditional formatting, a budget spreadsheet, and a formula cheat sheet.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://sparksheets.com/#website",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "description": "Step-by-step Excel and Google Sheets tutorials: XLOOKUP vs VLOOKUP, pivot tables, conditional formatting, a budget spreadsheet, and a formula cheat sheet.",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   }
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is XLOOKUP better than VLOOKUP?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For most new work, yes. XLOOKUP defaults to exact match, can look left or right, does not break when you insert columns, and has a built-in value for missing results. Use VLOOKUP only when you need compatibility with Excel 2019 or older."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do Excel formulas work in Google Sheets?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most do. Common functions like SUM, IF, SUMIFS, COUNTIFS, VLOOKUP, XLOOKUP, INDEX, and MATCH use the same syntax. Some features differ, such as Excel's structured table references and Google Sheets' QUERY function."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I make a cell reference absolute?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Add dollar signs: $A$1 locks both the column and row, $A1 locks only the column, and A$1 locks only the row. In Excel for Windows and Google Sheets you can press F4 while editing a reference to cycle through the options."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does my pivot table not show new data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In Excel, pivot tables do not update automatically. Click Refresh on the PivotTable Analyze tab, and make sure the source range includes the new rows — formatting the data as a table with Ctrl+T makes the range expand automatically. Google Sheets pivot tables update on their own."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I highlight an entire row based on one cell?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Select the whole data range, create a conditional formatting rule using a custom formula, and lock the column but not the row, such as =$F2=\"Overdue\". The rule then checks column F for each row."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is SparkSheets affiliated with Microsoft or Google?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. SparkSheets is an independent tutorial site. Excel is a trademark of Microsoft and Google Sheets is a trademark of Google."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/" aria-current="page">Home</a></li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<section class="hero"><p class="kicker">=LEARN("spreadsheets", "fast")</p><h1>Excel and Google Sheets tutorials that spark results</h1>
+<p>SparkSheets teaches the spreadsheet skills that save the most time at work and at home: looking up data, summarizing it, highlighting what matters, and building tools like a monthly budget. Every tutorial shows real formulas you can copy, explains each argument, and flags where Microsoft Excel and Google Sheets behave differently.</p>
+<p>New to formulas? Start with the cheat sheet, then work through lookups and pivot tables. Building something for yourself? Jump to the budget spreadsheet tutorial — it uses nearly every technique on the site.</p></section>
+<section aria-labelledby="guides"><h2 id="guides">Tutorials</h2>
+<ul class="cards"><li class="card"><h3><a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets</a></h3><p>Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.</p></li><li class="card"><h3><a href="/pivot-tables-guide.html">Pivot tables in Excel and Google Sheets: a beginner&#x27;s guide</a></h3><p>Prepare data, build a pivot, group dates, show percentages, and refresh results.</p></li><li class="card"><h3><a href="/conditional-formatting-guide.html">Conditional formatting in Excel and Google Sheets, with formula examples</a></h3><p>Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.</p></li><li class="card"><h3><a href="/budget-spreadsheet-tutorial.html">How to make a budget spreadsheet in Excel or Google Sheets</a></h3><p>Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.</p></li><li class="card"><h3><a href="/spreadsheet-formulas-cheat-sheet.html">Essential Excel and Google Sheets formulas cheat sheet</a></h3><p>Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.</p></li></ul></section>
+<h2 id="excel-vs-google-sheets-what-is-different">Excel vs Google Sheets: what is different?</h2>
+<p>Most everyday formulas work identically in both apps. The differences show up in a few places:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Feature</th><th scope="col">Microsoft Excel</th><th scope="col">Google Sheets</th></tr></thead><tbody><tr><td>XLOOKUP, FILTER, UNIQUE, SORT</td><td>Microsoft 365, Excel 2021 and later, and Excel for the web</td><td>Available</td></tr><tr><td>Pivot table refresh</td><td>Manual: click Refresh when source data changes</td><td>Updates automatically</td></tr><tr><td>Structured table references (<code>Table1[Amount]</code>)</td><td>Yes, with Insert &gt; Table</td><td>Yes in newer Google Sheets tables (Format &gt; Convert to table); open ranges like <code>A2:A</code> are also common</td></tr><tr><td>Collaboration</td><td>Real-time co-authoring with files in OneDrive or SharePoint</td><td>Real-time by default</td></tr><tr><td>Unique functions</td><td>Power Query, Power Pivot</td><td>QUERY, IMPORTRANGE, GOOGLEFINANCE</td></tr></tbody></table></div>
+<p>When a tutorial step differs between the two, we show both versions.</p>
+<section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2>
+<h3>Is XLOOKUP better than VLOOKUP?</h3>
+<p>For most new work, yes. XLOOKUP defaults to exact match, can look left or right, does not break when you insert columns, and has a built-in value for missing results. Use VLOOKUP only when you need compatibility with Excel 2019 or older.</p>
+<h3>Do Excel formulas work in Google Sheets?</h3>
+<p>Most do. Common functions like SUM, IF, SUMIFS, COUNTIFS, VLOOKUP, XLOOKUP, INDEX, and MATCH use the same syntax. Some features differ, such as Excel&#x27;s structured table references and Google Sheets&#x27; QUERY function.</p>
+<h3>How do I make a cell reference absolute?</h3>
+<p>Add dollar signs: $A$1 locks both the column and row, $A1 locks only the column, and A$1 locks only the row. In Excel for Windows and Google Sheets you can press F4 while editing a reference to cycle through the options.</p>
+<h3>Why does my pivot table not show new data?</h3>
+<p>In Excel, pivot tables do not update automatically. Click Refresh on the PivotTable Analyze tab, and make sure the source range includes the new rows — formatting the data as a table with Ctrl+T makes the range expand automatically. Google Sheets pivot tables update on their own.</p>
+<h3>How do I highlight an entire row based on one cell?</h3>
+<p>Select the whole data range, create a conditional formatting rule using a custom formula, and lock the column but not the row, such as =$F2=&quot;Overdue&quot;. The rule then checks column F for each row.</p>
+<h3>Is SparkSheets affiliated with Microsoft or Google?</h3>
+<p>No. SparkSheets is an independent tutorial site. Excel is a trademark of Microsoft and Google Sheets is a trademark of Google.</p>
+</section>
+
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>

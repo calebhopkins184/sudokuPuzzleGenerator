@@ -1,0 +1,21 @@
+# Africa Guiding
+
+> Independent African safari planning guides: best time to visit by country, the Great Migration, safari types, gorilla trekking in Rwanda and Uganda, packing and travel health.
+
+Africa Guiding is an editorial travel-information site. It does not sell tours or permits. Health content is general information that points readers to the CDC and travel clinicians.
+
+## Pages
+
+- [Home](https://africaguiding.com/): Overview of the site with links to every safari planning guide and a safari FAQ.
+- [Best Time for Safari in Africa, Country by Country](https://africaguiding.com/best-time-for-safari.html): Dry season, green season and month-by-month trade-offs for Africa's main safari countries.
+- [The Great Migration: A Month-by-Month Guide](https://africaguiding.com/great-migration-guide.html): Where the wildebeest herds usually are each month, plus how to plan for river crossings and calving.
+- [Choosing a Safari Type: Lodge, Mobile, Self-Drive and More](https://africaguiding.com/safari-types-lodge-mobile-self-drive.html): How lodges, tented camps, mobile, fly-in, overland and self-drive safaris differ, and who each one suits.
+- [Gorilla Trekking in Rwanda and Uganda: A Practical Guide](https://africaguiding.com/gorilla-trekking-rwanda-uganda.html): Permits, fitness, rules and Rwanda-vs-Uganda choices for seeing mountain gorillas in the wild.
+- [Safari Packing List: What to Wear and What to Bring](https://africaguiding.com/safari-packing-list.html): A practical checklist for clothes, gear, documents and soft-bag luggage limits on bush flights.
+- [Africa Travel Health: Vaccines, Malaria and Staying Well on Safari](https://africaguiding.com/africa-travel-health.html): How to prepare for vaccines, malaria, sun, water and insurance &mdash; and where to find official advice.
+
+## Optional
+
+- [About](https://africaguiding.com/about.html): Who runs Africa Guiding and how the content is written.
+- [Contact](https://africaguiding.com/contact.html): Email hello@africaguiding.com for questions and corrections.
+- [Privacy](https://africaguiding.com/privacy.html): Privacy policy for africaguiding.com.

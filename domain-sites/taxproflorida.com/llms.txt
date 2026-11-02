@@ -1,0 +1,17 @@
+# TaxPro Florida
+
+> Educational guides to Florida taxes: no state personal income tax and residency, homestead exemption and Save Our Homes, sales tax basics, corporate income and reemployment tax, and choosing a CPA, EA or tax attorney. Not a tax firm; not tax advice.
+
+All content is general education, not tax or legal advice. TaxPro Florida does not prepare returns or offer professional services.
+
+## Pages
+
+- [Home](https://taxproflorida.com/): Overview of TaxPro Florida's educational tax guides with key facts and FAQs.
+- [Florida Has No State Income Tax: What It Covers and What It Doesn't](https://taxproflorida.com/florida-no-state-income-tax.html): What Florida's lack of a personal income tax means, the taxes residents still pay, and how to establish domicile.
+- [Florida Homestead Exemption and Save Our Homes, Explained](https://taxproflorida.com/florida-homestead-exemption.html): Who qualifies, the March 1 deadline, how the Save Our Homes cap and portability work, and other exemptions.
+- [Florida Sales Tax Guide: Rates, Exemptions and Business Basics](https://taxproflorida.com/florida-sales-tax-guide.html): The 6% state rate plus county surtax, what's exempt, use tax, and how businesses register, collect and file.
+- [Florida Business Taxes: Corporate Income Tax, Reemployment Tax and More](https://taxproflorida.com/florida-business-taxes.html): Corporate income tax, reemployment (unemployment) tax, tangible personal property tax, local business taxes and annual reports.
+- [How to Choose a Tax Professional in Florida: CPA vs. EA vs. Tax Attorney](https://taxproflorida.com/choosing-a-tax-professional.html): The differences between CPAs, enrolled agents and tax attorneys, how to verify credentials, red flags and free help.
+- [About](https://taxproflorida.com/about.html): Who runs TaxPro Florida, its educational mission and its not-a-tax-firm disclaimer.
+- [Contact](https://taxproflorida.com/contact.html): How to reach TaxPro Florida by email.
+- [Privacy Policy](https://taxproflorida.com/privacy.html): What data the site collects and how it is used.

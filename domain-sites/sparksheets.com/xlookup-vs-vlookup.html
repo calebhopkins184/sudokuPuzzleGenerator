@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XLOOKUP vs VLOOKUP: Syntax, Examples, Fixes | SparkSheets</title>
+<meta name="description" content="Learn XLOOKUP vs VLOOKUP in Excel and Google Sheets with copyable formulas: exact match, left lookups, if-not-found values, approximate tiers, and INDEX/MATCH.">
+<link rel="canonical" href="https://sparksheets.com/xlookup-vs-vlookup.html">
+<meta property="og:title" content="XLOOKUP vs VLOOKUP: Syntax, Examples, Fixes | SparkSheets">
+<meta property="og:description" content="Learn XLOOKUP vs VLOOKUP in Excel and Google Sheets with copyable formulas: exact match, left lookups, if-not-found values, approximate tiers, and INDEX/MATCH.">
+<meta property="og:url" content="https://sparksheets.com/xlookup-vs-vlookup.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XLOOKUP vs VLOOKUP: Syntax, Examples, Fixes | SparkSheets">
+<meta name="twitter:description" content="Learn XLOOKUP vs VLOOKUP in Excel and Google Sheets with copyable formulas: exact match, left lookups, if-not-found values, approximate tiers, and INDEX/MATCH.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets",
+   "description": "Learn XLOOKUP vs VLOOKUP in Excel and Google Sheets with copyable formulas: exact match, left lookups, if-not-found values, approximate tiers, and INDEX/MATCH.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "SparkSheets",
+    "url": "https://sparksheets.com/"
+   },
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   },
+   "mainEntityOfPage": "https://sparksheets.com/xlookup-vs-vlookup.html",
+   "inLanguage": "en",
+   "wordCount": 800
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://sparksheets.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "XLOOKUP",
+     "item": "https://sparksheets.com/xlookup-vs-vlookup.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/xlookup-vs-vlookup.html" aria-current="page">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">XLOOKUP</li></ol></nav>
+<article class="article">
+<h1>XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the SparkSheets team</p>
+<p class="lede">VLOOKUP searches the first column of a range and returns a value from a column to its right. XLOOKUP searches any column and returns from any other column, defaults to an exact match, and lets you specify what to show when nothing is found. If your version supports XLOOKUP, it is usually the better choice.</p>
+<h2 id="the-sample-data">The sample data</h2>
+<p>The examples use a product list in <code>A1:D6</code>:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><td>1</td><td>SKU</td><td>Product</td><td>Category</td><td>Price</td></tr><tr><td>2</td><td>P-100</td><td>Notebook</td><td>Paper</td><td>4.50</td></tr><tr><td>3</td><td>P-205</td><td>Gel pen</td><td>Writing</td><td>1.75</td></tr><tr><td>4</td><td>P-310</td><td>Stapler</td><td>Desk</td><td>12.00</td></tr><tr><td>5</td><td>P-415</td><td>Sticky notes</td><td>Paper</td><td>3.25</td></tr><tr><td>6</td><td>P-520</td><td>Desk lamp</td><td>Desk</td><td>29.99</td></tr></tbody></table></div>
+<p>Cell <code>G2</code> holds the SKU you want to look up, such as <code>P-310</code>.</p>
+<h2 id="vlookup-syntax">VLOOKUP syntax</h2>
+<pre data-lang="excel"><code>=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></pre>
+<ul><li><strong>lookup_value</strong> — what to find (<code>G2</code>).</li><li><strong>table_array</strong> — the range to search; the lookup column must be the <strong>first</strong> column.</li><li><strong>col_index_num</strong> — which column of the range to return, counting from 1.</li><li><strong>range_lookup</strong> — <code>FALSE</code> for exact match, <code>TRUE</code> (the default) for approximate match.</li></ul>
+<p>To return the price for the SKU in G2:</p>
+<pre data-lang="excel"><code>=VLOOKUP(G2, $A$2:$D$6, 4, FALSE)</code></pre>
+<p>Result: <code>12.00</code>.</p>
+<aside class="note"><p>The most common VLOOKUP mistake is leaving off the last argument. The default is approximate match, which can silently return the wrong row if your data is not sorted. Always type FALSE (or 0) for exact matches. Google Sheets works the same way: its last argument, is_sorted, also defaults to TRUE.</p></aside>
+<h3 id="vlookup-s-limitations">VLOOKUP&#x27;s limitations</h3>
+<ul><li>It can only return columns to the <strong>right</strong> of the lookup column.</li><li>The column number is hard-coded, so <strong>inserting a column</strong> inside the range can break it.</li><li>It returns <code>#N/A</code> when there is no match, which you must wrap in <code>IFERROR</code> or <code>IFNA</code>.</li></ul>
+<h2 id="xlookup-syntax">XLOOKUP syntax</h2>
+<pre data-lang="excel"><code>=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</code></pre>
+<ul><li><strong>lookup_array</strong> — the single column (or row) to search.</li><li><strong>return_array</strong> — the column (or columns) to return.</li><li><strong>if_not_found</strong> — what to show if there is no match.</li><li><strong>match_mode</strong> — <code>0</code> exact (default), <code>-1</code> exact or next smaller, <code>1</code> exact or next larger, <code>2</code> wildcard.</li><li><strong>search_mode</strong> — <code>1</code> first to last (default), <code>-1</code> last to first, plus binary search options <code>2</code> and <code>-2</code> for sorted data.</li></ul>
+<p>The same price lookup:</p>
+<pre data-lang="excel"><code>=XLOOKUP(G2, $A$2:$A$6, $D$2:$D$6, &quot;Not found&quot;)</code></pre>
+<p>XLOOKUP is available in Excel for Microsoft 365, Excel 2021 and later, Excel for the web, and Google Sheets. It is not available in Excel 2019 or earlier.</p>
+<h2 id="side-by-side-comparison">Side-by-side comparison</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Task</th><th scope="col">VLOOKUP</th><th scope="col">XLOOKUP</th></tr></thead><tbody><tr><td>Default match</td><td>Approximate</td><td>Exact</td></tr><tr><td>Look left</td><td>No</td><td>Yes</td></tr><tr><td>Survives inserted columns</td><td>No</td><td>Yes</td></tr><tr><td>Custom not-found value</td><td>Needs IFNA/IFERROR</td><td>Built in</td></tr><tr><td>Find last match</td><td>Not directly</td><td><code>search_mode</code> = -1</td></tr><tr><td>Return several columns</td><td>One per formula</td><td>Yes, results spill</td></tr><tr><td>Wildcards</td><td>Yes, in exact-match mode</td><td><code>match_mode</code> = 2</td></tr></tbody></table></div>
+<h2 id="useful-xlookup-patterns">Useful XLOOKUP patterns</h2>
+<h3 id="look-up-to-the-left">Look up to the left</h3>
+<p>Find the SKU for a product name typed in <code>G3</code>:</p>
+<pre data-lang="excel"><code>=XLOOKUP(G3, $B$2:$B$6, $A$2:$A$6, &quot;No such product&quot;)</code></pre>
+<h3 id="return-several-columns-at-once">Return several columns at once</h3>
+<p>Return the product, category, and price for the SKU in G2. The result spills into three adjacent cells:</p>
+<pre data-lang="excel"><code>=XLOOKUP(G2, $A$2:$A$6, $B$2:$D$6)</code></pre>
+<h3 id="approximate-match-for-tiers">Approximate match for tiers</h3>
+<p>Approximate matching is ideal for tax brackets, commission rates, or grades. With thresholds in <code>J2:J5</code> (0, 60, 75, 90) and letter grades in <code>K2:K5</code> (F, C, B, A):</p>
+<pre data-lang="excel"><code>=XLOOKUP(H2, $J$2:$J$5, $K$2:$K$5, , -1)</code></pre>
+<p>Match mode <code>-1</code> returns the grade for the largest threshold that is less than or equal to the score. A score of 82 returns <code>B</code>. The VLOOKUP equivalent requires the thresholds sorted ascending:</p>
+<pre data-lang="excel"><code>=VLOOKUP(H2, $J$2:$K$5, 2, TRUE)</code></pre>
+<h3 id="find-the-most-recent-entry">Find the most recent entry</h3>
+<p>To return the latest price recorded for a SKU in a log where new rows are added at the bottom, search from last to first:</p>
+<pre data-lang="excel"><code>=XLOOKUP(G2, Log!A:A, Log!C:C, &quot;None&quot;, 0, -1)</code></pre>
+<h3 id="two-way-lookup">Two-way lookup</h3>
+<p>Nest one XLOOKUP inside another to match both a row and a column header. With regions in <code>A2:A10</code>, months in <code>B1:M1</code>, and values in <code>B2:M10</code>:</p>
+<pre data-lang="excel"><code>=XLOOKUP(P1, $A$2:$A$10, XLOOKUP(P2, $B$1:$M$1, $B$2:$M$10))</code></pre>
+<h2 id="index-match-the-classic-alternative">INDEX/MATCH: the classic alternative</h2>
+<p>Before XLOOKUP, INDEX with MATCH was the standard flexible lookup, and it still works in every version of Excel and in Google Sheets.</p>
+<pre data-lang="excel"><code>=INDEX($D$2:$D$6, MATCH(G2, $A$2:$A$6, 0))</code></pre>
+<p><code>MATCH</code> finds the position of G2 in column A; <code>INDEX</code> returns the value at that position in column D. The <code>0</code> in MATCH means exact match — its default, <code>1</code>, is approximate.</p>
+<h2 id="fixing-common-lookup-errors">Fixing common lookup errors</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Likely cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td><code>#N/A</code> when the value clearly exists</td><td>Extra spaces, or numbers stored as text</td><td>Use <code>TRIM()</code>; convert text to numbers with <code>VALUE()</code> or by multiplying by 1</td></tr><tr><td>Wrong result, no error</td><td>VLOOKUP approximate match on unsorted data</td><td>Add <code>FALSE</code> as the last argument</td></tr><tr><td><code>#REF!</code></td><td>VLOOKUP column number larger than the range</td><td>Fix <code>col_index_num</code> or switch to XLOOKUP</td></tr><tr><td>Results shift after copying</td><td>Relative references</td><td>Lock ranges with <code>$</code>, as in <code>$A$2:$A$6</code></td></tr><tr><td><code>#SPILL!</code> in Excel</td><td>Cells where results would spill are not empty</td><td>Clear the cells below or to the right</td></tr><tr><td><code>#NAME?</code></td><td>XLOOKUP not supported in your Excel version</td><td>Use INDEX/MATCH or VLOOKUP</td></tr></tbody></table></div>
+<p>To hide errors only when a match is missing, wrap older formulas in <code>IFNA</code>:</p>
+<pre data-lang="excel"><code>=IFNA(VLOOKUP(G2, $A$2:$D$6, 4, FALSE), &quot;Not found&quot;)</code></pre>
+<p><code>IFNA</code> is safer than <code>IFERROR</code> because it does not mask other mistakes, such as a typo that causes <code>#REF!</code>.</p>
+
+
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/spreadsheet-formulas-cheat-sheet.html">Essential Excel and Google Sheets formulas cheat sheet</a> &mdash; Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.</li><li><a href="/pivot-tables-guide.html">Pivot tables in Excel and Google Sheets: a beginner&#x27;s guide</a> &mdash; Prepare data, build a pivot, group dates, show percentages, and refresh results.</li><li><a href="/budget-spreadsheet-tutorial.html">How to make a budget spreadsheet in Excel or Google Sheets</a> &mdash; Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>

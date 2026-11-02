@@ -1,0 +1,137 @@
+/* Mobile-first stylesheet. System fonts only. */
+:root {
+  --bg: #fbf9f4;
+  --text: #24282b;
+  --heading: #173f30;
+  --muted: #59615e;
+  --link: #1d5e46;
+  --link-hover: #0f3b2b;
+  --focus: #d98e04;
+  --accent: #9c3d2e;
+  --panel: #efece3;
+  --card: #ffffff;
+  --border: #dcd6c8;
+  --border-strong: #8b8577;
+  --header-bg: #173f30;
+  --header-text: #f6f3ea;
+  --footer-bg: #122f25;
+  --footer-text: #e3e7e2;
+  --footer-link: #b7e0c9;
+  --footer-rule: #2d4f42;
+  --button: #173f30;
+  --button-text: #f6f3ea;
+  --radius: 6px;
+  --maxw: 72rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+img, svg { max-width: 100%; height: auto; }
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:hover { color: var(--link-hover); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif; line-height: 1.2; color: var(--heading); }
+h1 { font-size: clamp(1.9rem, 5vw, 2.9rem); margin: 0.2em 0 0.4em; }
+h2 { font-size: clamp(1.35rem, 3.2vw, 1.8rem); margin: 2em 0 0.5em; }
+h3 { font-size: 1.15rem; margin: 1.5em 0 0.4em; }
+p, ul, ol, table { margin: 0 0 1.1em; }
+li { margin-bottom: 0.35em; }
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; }
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--focus); color: #000; padding: 0.6rem 1rem; z-index: 100; font-weight: 700; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* Header */
+.site-header { background: var(--header-bg); color: var(--header-text); }
+.header-inner { display: flex; flex-direction: column; gap: 0.6rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+.logo { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--header-text); text-decoration: none; font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif; font-weight: 700; font-size: 1.15rem; }
+.logo:hover { color: var(--header-text); }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; }
+.site-nav li { margin: 0; }
+.site-nav a { color: var(--header-text); text-decoration: none; font-size: 0.95rem; padding: 0.2rem 0; display: inline-block; border-bottom: 2px solid transparent; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--accent); color: var(--header-text); }
+
+/* Main */
+main { padding-top: 1.2rem; padding-bottom: 3rem; }
+.content { max-width: 46rem; }
+.page-home .content { max-width: none; }
+.page-home .content > p, .page-home .content > ul, .page-home .faq { max-width: 46rem; }
+.kicker { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 700; color: var(--muted); margin: 1rem 0 0; }
+.updated { color: var(--muted); font-size: 0.9rem; }
+.lead { font-size: 1.2rem; }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; padding: 0; margin: 0 0 0.5rem; font-size: 0.88rem; color: var(--muted); }
+.breadcrumbs li { margin: 0; }
+.breadcrumbs li + li::before { content: "/"; margin: 0 0.5rem; }
+.answer { background: var(--panel); border-left: 4px solid var(--accent); padding: 0.9rem 1.1rem; border-radius: 0 var(--radius) var(--radius) 0; }
+.note { background: var(--panel); padding: 0.9rem 1.1rem; border-radius: var(--radius); border: 1px solid var(--border); }
+.table-wrap { overflow-x: auto; margin-bottom: 1.2em; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); }
+th { background: var(--panel); color: var(--heading); }
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; padding: 0; list-style: none; margin: 1rem 0 2rem; }
+.cards li { margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+.cards h3 { margin-top: 0; }
+.cards a { font-weight: 700; }
+.cards p { margin: 0; color: var(--text); }
+.faq-item { border-bottom: 1px solid var(--border); padding: 0.4rem 0; }
+.faq-item summary { cursor: pointer; list-style-position: outside; }
+.faq-item summary h3 { display: inline; font-size: 1.05rem; margin: 0; }
+.faq-a { padding: 0.4rem 0 0.2rem; }
+.faq-a p:last-child { margin-bottom: 0.4rem; }
+.related { max-width: 46rem; margin-top: 2.5rem; padding: 1.2rem 1.3rem; background: var(--panel); border-radius: var(--radius); border: 1px solid var(--border); }
+.related h2 { margin-top: 0; font-size: 1.25rem; }
+.related ul { margin: 0; padding-left: 1.1rem; }
+.related span { display: block; color: var(--muted); font-size: 0.92rem; }
+.disclaimer { font-size: 0.9rem; }
+.disclaimer-box { font-size: 0.95rem; background: var(--panel); border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 0.8rem 1rem; }
+form { display: grid; gap: 0.9rem; max-width: 32rem; }
+label { font-weight: 600; display: block; margin-bottom: 0.25rem; }
+input, textarea { width: 100%; font: inherit; padding: 0.6rem 0.7rem; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--card); color: var(--text); }
+button { font: inherit; font-weight: 700; padding: 0.7rem 1.3rem; border: 0; border-radius: var(--radius); background: var(--button); color: var(--button-text); cursor: pointer; justify-self: start; }
+button:hover { filter: brightness(1.1); }
+
+/* Footer */
+.site-footer { background: var(--footer-bg); color: var(--footer-text); padding: 2rem 0 1rem; font-size: 0.95rem; }
+.site-footer a { color: var(--footer-link); }
+.footer-inner { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+.footer-brand { font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.3rem; }
+.site-footer h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--footer-text); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.copyright { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--footer-rule); font-size: 0.85rem; }
+
+@media (min-width: 48rem) {
+  .header-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  .site-nav ul { justify-content: flex-end; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
+}
+@media (min-width: 70rem) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Personality: organized claim file - forest-green folder tabs, ruled paper, brick-red stamps */
+:root { --radius: 3px; --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+.kicker { font-family: var(--mono); color: var(--accent); letter-spacing: 0.08em; }
+.kicker::before { content: "FILE \2022  "; }
+h1 { font-weight: 700; }
+h2 { font-weight: 700; border-bottom: 1px solid var(--border-strong); padding-bottom: 0.25em; }
+.related h2, .site-footer h2 { border-bottom: 0; }
+.page-home .hero { margin: 0 0 2rem; padding: 1.8rem 1.3rem; background: #ffffff; border: 1px solid var(--border); border-top: 8px solid #173f30;
+  background-image: repeating-linear-gradient(180deg, transparent 0 31px, #ece7da 31px 32px); }
+.page-home .hero h1 { margin-top: 0; }
+.cards li { position: relative; border-radius: 0 6px 6px 6px; margin-top: 0.9rem; border-color: #cfc8b6; }
+.cards li::before { content: ""; position: absolute; top: -0.9rem; left: -1px; width: 6rem; height: 0.9rem; background: #e3dcc8; border: 1px solid #cfc8b6; border-bottom: 0; border-radius: 6px 6px 0 0; }
+.answer { border-left-color: #173f30; background: #edf3ef; }
+.disclaimer-box { border-left: 5px solid var(--accent); background: #f7ede9; border-color: #e2c3bb; }
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding-left: 1.8rem; position: relative; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 1rem; height: 1rem; border: 2px solid #173f30; border-radius: 2px; }
+th { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.02em; }
+@media (min-width: 48rem) { .page-home .hero { padding: 2.4rem 2.4rem; } }

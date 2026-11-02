@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditional Formatting in Excel and Sheets | SparkSheets</title>
+<meta name="description" content="Master conditional formatting in Excel and Google Sheets: color scales, data bars, and custom formulas that highlight whole rows, due dates, and duplicates.">
+<link rel="canonical" href="https://sparksheets.com/conditional-formatting-guide.html">
+<meta property="og:title" content="Conditional Formatting in Excel and Sheets | SparkSheets">
+<meta property="og:description" content="Master conditional formatting in Excel and Google Sheets: color scales, data bars, and custom formulas that highlight whole rows, due dates, and duplicates.">
+<meta property="og:url" content="https://sparksheets.com/conditional-formatting-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Conditional Formatting in Excel and Sheets | SparkSheets">
+<meta name="twitter:description" content="Master conditional formatting in Excel and Google Sheets: color scales, data bars, and custom formulas that highlight whole rows, due dates, and duplicates.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Conditional formatting in Excel and Google Sheets, with formula examples",
+   "description": "Master conditional formatting in Excel and Google Sheets: color scales, data bars, and custom formulas that highlight whole rows, due dates, and duplicates.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "SparkSheets",
+    "url": "https://sparksheets.com/"
+   },
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   },
+   "mainEntityOfPage": "https://sparksheets.com/conditional-formatting-guide.html",
+   "inLanguage": "en",
+   "wordCount": 867
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://sparksheets.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Conditional Formatting",
+     "item": "https://sparksheets.com/conditional-formatting-guide.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html" aria-current="page">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Conditional Formatting</li></ol></nav>
+<article class="article">
+<h1>Conditional formatting in Excel and Google Sheets, with formula examples</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the SparkSheets team</p>
+<p class="lede">Conditional formatting automatically changes a cell&#x27;s color, font, or icon based on its value or a formula. Use it to highlight overdue tasks, flag numbers over budget, find duplicates, or turn a column of numbers into a heat map. Built-in rules handle simple cases; custom formulas handle everything else.</p>
+<h2 id="where-to-find-it">Where to find it</h2>
+<ul><li><strong>Excel:</strong> select your cells, then <strong>Home &gt; Conditional Formatting</strong>. Use <strong>Manage Rules</strong> to edit, reorder, or delete rules.</li><li><strong>Google Sheets:</strong> select your cells, then <strong>Format &gt; Conditional formatting</strong>. The sidebar has <strong>Single color</strong> and <strong>Color scale</strong> tabs.</li></ul>
+<h2 id="built-in-rules-for-quick-wins">Built-in rules for quick wins</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Goal</th><th scope="col">Excel</th><th scope="col">Google Sheets</th></tr></thead><tbody><tr><td>Values greater than a number</td><td>Highlight Cells Rules &gt; Greater Than</td><td>Format cells if... &gt; Greater than</td></tr><tr><td>Text contains a word</td><td>Highlight Cells Rules &gt; Text that Contains</td><td>Format cells if... &gt; Text contains</td></tr><tr><td>Dates in a period</td><td>Highlight Cells Rules &gt; A Date Occurring</td><td>Format cells if... &gt; Date is</td></tr><tr><td>Duplicates</td><td>Highlight Cells Rules &gt; Duplicate Values</td><td>Custom formula (see below)</td></tr><tr><td>Top or bottom values</td><td>Top/Bottom Rules &gt; Top 10 Items</td><td>Custom formula with LARGE or SMALL</td></tr><tr><td>Heat map</td><td>Color Scales</td><td>Color scale tab</td></tr><tr><td>In-cell bars</td><td>Data Bars</td><td>Use the SPARKLINE function instead</td></tr><tr><td>Icons</td><td>Icon Sets</td><td>Not built in; use emoji or symbols via formulas</td></tr></tbody></table></div>
+<h2 id="custom-formula-rules-the-real-power">Custom formula rules: the real power</h2>
+<p>A custom formula rule applies formatting wherever the formula returns <strong>TRUE</strong>.</p>
+<ul><li><strong>Excel:</strong> Conditional Formatting &gt; <strong>New Rule</strong> &gt; <strong>Use a formula to determine which cells to format</strong>.</li><li><strong>Google Sheets:</strong> <strong>Format cells if...</strong> &gt; <strong>Custom formula is</strong>.</li></ul>
+<p>The key is <strong>writing the formula for the top-left cell of your selection</strong>. The app then adjusts it for every other cell, following the same relative and absolute reference rules as copying a formula.</p>
+<h3 id="highlight-an-entire-row-based-on-one-column">Highlight an entire row based on one column</h3>
+<p>Task list in <code>A2:F100</code>, with status in column F. To color every row where status is &quot;Overdue&quot;:</p>
+<ol><li>Select <code>A2:F100</code> (start at row 2, not the header).</li><li>Add a custom formula rule:</li></ol>
+<pre data-lang="excel"><code>=$F2=&quot;Overdue&quot;</code></pre>
+<p>The <code>$</code> locks column F, so every cell in the row checks the status column. The row number has no <code>$</code>, so each row checks its own status.</p>
+<h3 id="flag-past-due-items-that-are-not-done">Flag past-due items that are not done</h3>
+<p>Due date in column D, status in column E:</p>
+<pre data-lang="excel"><code>=AND($D2&lt;TODAY(), $E2&lt;&gt;&quot;Done&quot;, $D2&lt;&gt;&quot;&quot;)</code></pre>
+<p>The last condition skips rows with no due date, since a blank cell counts as zero, which is earlier than today.</p>
+<h3 id="due-within-the-next-7-days">Due within the next 7 days</h3>
+<pre data-lang="excel"><code>=AND($D2&gt;=TODAY(), $D2&lt;=TODAY()+7)</code></pre>
+<h3 id="highlight-duplicates-in-google-sheets">Highlight duplicates in Google Sheets</h3>
+<p>Select <code>A2:A500</code> and use:</p>
+<pre data-lang="excel"><code>=COUNTIF($A$2:$A$500, A2)&gt;1</code></pre>
+<p>Every value that appears more than once is highlighted. To highlight only the second and later occurrences, use a range that grows as it goes down:</p>
+<pre data-lang="excel"><code>=COUNTIF($A$2:A2, A2)&gt;1</code></pre>
+<h3 id="banded-rows">Banded rows</h3>
+<p>Excel tables (Ctrl+T) and Google Sheets&#x27; <strong>Format &gt; Alternating colors</strong> create banding instantly. For a formula approach in either app:</p>
+<pre data-lang="excel"><code>=MOD(ROW(), 2)=0</code></pre>
+<h3 id="over-budget">Over budget</h3>
+<p>Budget in column B, actual in column C. Select <code>C2:C20</code>:</p>
+<pre data-lang="excel"><code>=$C2&gt;$B2</code></pre>
+<p>The <a href="/budget-spreadsheet-tutorial.html">budget spreadsheet tutorial</a> uses this rule plus a color scale for spending percentages.</p>
+<h3 id="weekends-in-a-date-row">Weekends in a date row</h3>
+<p>For dates in row 1 of a calendar or schedule (<code>B1:AF1</code>), selecting <code>B1:AF20</code>:</p>
+<pre data-lang="excel"><code>=WEEKDAY(B$1, 2)&gt;5</code></pre>
+<p><code>WEEKDAY(..., 2)</code> numbers Monday as 1 through Sunday as 7, so values above 5 are Saturday and Sunday. Here the row is locked with <code>$</code> instead of the column.</p>
+<h3 id="top-3-values">Top 3 values</h3>
+<pre data-lang="excel"><code>=C2&gt;=LARGE($C$2:$C$50, 3)</code></pre>
+<h2 id="color-scales-and-data-bars">Color scales and data bars</h2>
+<p>Color scales shade cells on a gradient from lowest to highest. They are ideal for spotting patterns in grids — sales by month and region, or test scores by question.</p>
+<ul><li>Pick a scale where the colors have a clear meaning, such as white-to-green for &quot;more is better.&quot;</li><li>Avoid red-green scales if colorblind readers will use the sheet; blue-orange or a single-hue scale is easier for many people to read.</li><li>Set fixed minimum and maximum values (Excel: <strong>Manage Rules &gt; Edit Rule</strong>; Sheets: <strong>Minpoint</strong> and <strong>Maxpoint</strong>) if you want colors to mean the same thing month to month.</li></ul>
+<p>In Excel, <strong>Data Bars</strong> draw a bar inside each cell proportional to its value. In Google Sheets, a similar effect is possible with the <code>SPARKLINE</code> function in a neighboring cell:</p>
+<pre data-lang="excel"><code>=SPARKLINE(C2, {&quot;charttype&quot;,&quot;bar&quot;; &quot;max&quot;, MAX($C$2:$C$50)})</code></pre>
+<h2 id="rule-order-and-conflicts">Rule order and conflicts</h2>
+<p>When several rules apply to the same cell:</p>
+<ul><li><strong>Excel</strong> applies rules in the order shown in Manage Rules. If two rules set the same property, such as fill color, the higher rule wins. Check <strong>Stop If True</strong> to prevent lower rules from applying.</li><li><strong>Google Sheets</strong> applies the first matching rule in the sidebar list and ignores the rest for that cell. Drag rules to reorder them.</li></ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Symptom</th><th scope="col">Fix</th></tr></thead><tbody><tr><td>Rule highlights the wrong rows</td><td>Your formula refers to a different row than the first row of the selection; rewrite it for the top-left cell</td></tr><tr><td>Whole column highlights or nothing does</td><td>Check the <code>$</code> signs; you probably locked the row or forgot to lock the column</td></tr><tr><td>Text comparisons fail</td><td>Look for extra spaces; use <code>TRIM()</code> in the formula</td></tr><tr><td>Numbers stored as text do not compare</td><td>Convert them to real numbers first</td></tr><tr><td>Rule references another sheet in Google Sheets</td><td>Use <code>INDIRECT(&quot;Sheet2!A1&quot;)</code>, since direct cross-sheet references are not allowed there</td></tr><tr><td>Sheet becomes slow</td><td>Limit ranges to the rows you use instead of entire columns, and reduce volatile functions like <code>TODAY()</code> in large rule sets</td></tr></tbody></table></div>
+<h2 id="keep-it-readable">Keep it readable</h2>
+<p>Conditional formatting works best when it draws attention to exceptions. Use one or two highlight colors with a clear meaning, add a short legend, and resist formatting everything. If every cell is colored, nothing stands out.</p>
+
+
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/budget-spreadsheet-tutorial.html">How to make a budget spreadsheet in Excel or Google Sheets</a> &mdash; Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.</li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Essential Excel and Google Sheets formulas cheat sheet</a> &mdash; Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.</li><li><a href="/pivot-tables-guide.html">Pivot tables in Excel and Google Sheets: a beginner&#x27;s guide</a> &mdash; Prepare data, build a pivot, group dates, show percentages, and refresh results.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>

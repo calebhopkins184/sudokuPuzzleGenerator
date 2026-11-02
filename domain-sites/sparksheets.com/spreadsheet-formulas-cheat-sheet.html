@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excel and Google Sheets Formulas Cheat Sheet | SparkSheets</title>
+<meta name="description" content="A practical Excel and Google Sheets formulas cheat sheet: math, logic, lookups, text, dates, and dynamic arrays like FILTER and UNIQUE, with copyable examples.">
+<link rel="canonical" href="https://sparksheets.com/spreadsheet-formulas-cheat-sheet.html">
+<meta property="og:title" content="Excel and Google Sheets Formulas Cheat Sheet | SparkSheets">
+<meta property="og:description" content="A practical Excel and Google Sheets formulas cheat sheet: math, logic, lookups, text, dates, and dynamic arrays like FILTER and UNIQUE, with copyable examples.">
+<meta property="og:url" content="https://sparksheets.com/spreadsheet-formulas-cheat-sheet.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Excel and Google Sheets Formulas Cheat Sheet | SparkSheets">
+<meta name="twitter:description" content="A practical Excel and Google Sheets formulas cheat sheet: math, logic, lookups, text, dates, and dynamic arrays like FILTER and UNIQUE, with copyable examples.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Essential Excel and Google Sheets formulas cheat sheet",
+   "description": "A practical Excel and Google Sheets formulas cheat sheet: math, logic, lookups, text, dates, and dynamic arrays like FILTER and UNIQUE, with copyable examples.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "SparkSheets",
+    "url": "https://sparksheets.com/"
+   },
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   },
+   "mainEntityOfPage": "https://sparksheets.com/spreadsheet-formulas-cheat-sheet.html",
+   "inLanguage": "en",
+   "wordCount": 799
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://sparksheets.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Formula Cheat Sheet",
+     "item": "https://sparksheets.com/spreadsheet-formulas-cheat-sheet.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html" aria-current="page">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Formula Cheat Sheet</li></ol></nav>
+<article class="article">
+<h1>Essential Excel and Google Sheets formulas cheat sheet</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the SparkSheets team</p>
+<p class="lede">These are the formulas that cover most everyday spreadsheet work. Each works in both Microsoft Excel and Google Sheets unless noted. Formulas always start with an equals sign, and arguments are separated by commas — though in some regional settings, such as many European locales, the separator is a semicolon.</p>
+<h2 id="cell-references-relative-absolute-and-mixed">Cell references: relative, absolute, and mixed</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Reference</th><th scope="col">When copied</th><th scope="col">Use it for</th></tr></thead><tbody><tr><td><code>A1</code></td><td>Column and row both shift</td><td>Most formulas</td></tr><tr><td><code>$A$1</code></td><td>Nothing shifts</td><td>A fixed input, like a tax rate cell</td></tr><tr><td><code>$A1</code></td><td>Row shifts, column stays</td><td>Checking one column across rows</td></tr><tr><td><code>A$1</code></td><td>Column shifts, row stays</td><td>Reading a header row</td></tr></tbody></table></div>
+<p>While editing a reference, press <strong>F4</strong> in Excel for Windows or Google Sheets to cycle through these (on some laptops, Fn+F4; in Excel for Mac, Cmd+T).</p>
+<h2 id="math-and-totals">Math and totals</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Formula</th><th scope="col">What it does</th><th scope="col">Example</th></tr></thead><tbody><tr><td><code>SUM</code></td><td>Adds numbers</td><td><code>=SUM(B2:B50)</code></td></tr><tr><td><code>AVERAGE</code></td><td>Mean of numbers</td><td><code>=AVERAGE(B2:B50)</code></td></tr><tr><td><code>MEDIAN</code></td><td>Middle value, less affected by outliers</td><td><code>=MEDIAN(B2:B50)</code></td></tr><tr><td><code>MIN</code> / <code>MAX</code></td><td>Smallest / largest</td><td><code>=MAX(B2:B50)</code></td></tr><tr><td><code>ROUND</code></td><td>Round to a number of digits</td><td><code>=ROUND(B2*1.0725, 2)</code></td></tr><tr><td><code>COUNT</code></td><td>Counts cells with numbers</td><td><code>=COUNT(B2:B50)</code></td></tr><tr><td><code>COUNTA</code></td><td>Counts non-empty cells</td><td><code>=COUNTA(A2:A50)</code></td></tr><tr><td><code>COUNTBLANK</code></td><td>Counts empty cells</td><td><code>=COUNTBLANK(A2:A50)</code></td></tr></tbody></table></div>
+<h2 id="conditional-math">Conditional math</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Formula</th><th scope="col">What it does</th></tr></thead><tbody><tr><td><code>COUNTIF(range, criteria)</code></td><td>Counts cells meeting one condition</td></tr><tr><td><code>COUNTIFS(range1, crit1, range2, crit2, ...)</code></td><td>Counts rows meeting all conditions</td></tr><tr><td><code>SUMIF(range, criteria, sum_range)</code></td><td>Adds values meeting one condition</td></tr><tr><td><code>SUMIFS(sum_range, range1, crit1, ...)</code></td><td>Adds values meeting all conditions</td></tr><tr><td><code>AVERAGEIFS(avg_range, range1, crit1, ...)</code></td><td>Averages values meeting all conditions</td></tr></tbody></table></div>
+<p>Note that <code>SUMIF</code> puts the sum range <strong>last</strong>, while <code>SUMIFS</code> puts it <strong>first</strong>.</p>
+<pre data-lang="excel"><code>=COUNTIF(C2:C200, &quot;Paid&quot;)
+=SUMIFS(D2:D200, B2:B200, &quot;West&quot;, C2:C200, &quot;Paid&quot;)
+=SUMIFS(D2:D200, A2:A200, &quot;&gt;=&quot;&amp;DATE(2026,1,1), A2:A200, &quot;&lt;&quot;&amp;DATE(2027,1,1))
+=COUNTIF(A2:A200, &quot;*widget*&quot;)</code></pre>
+<p>Criteria with operators go in quotes and join to cell references with <code>&amp;</code>. The <code>*</code> wildcard matches any characters.</p>
+<h2 id="logic">Logic</h2>
+<pre data-lang="excel"><code>=IF(B2&gt;=100, &quot;Target met&quot;, &quot;Below target&quot;)
+=IF(AND(B2&gt;=100, C2=&quot;Yes&quot;), &quot;Bonus&quot;, &quot;No bonus&quot;)
+=IF(OR(D2=&quot;Urgent&quot;, E2&lt;TODAY()), &quot;Act now&quot;, &quot;&quot;)
+=IFS(B2&gt;=90, &quot;A&quot;, B2&gt;=80, &quot;B&quot;, B2&gt;=70, &quot;C&quot;, TRUE, &quot;Below C&quot;)
+=IFERROR(B2/C2, 0)
+=IFNA(XLOOKUP(A2, F:F, G:G), &quot;Missing&quot;)</code></pre>
+<p><code>IFS</code> checks conditions in order and returns the first match; the final <code>TRUE</code> acts as &quot;everything else.&quot; It is available in Excel 2019 and later and in Google Sheets. <code>SWITCH</code> is a tidy alternative for matching one value against a list:</p>
+<pre data-lang="excel"><code>=SWITCH(A2, &quot;N&quot;, &quot;North&quot;, &quot;S&quot;, &quot;South&quot;, &quot;E&quot;, &quot;East&quot;, &quot;W&quot;, &quot;West&quot;, &quot;Unknown&quot;)</code></pre>
+<h2 id="lookups">Lookups</h2>
+<pre data-lang="excel"><code>=XLOOKUP(A2, Products!A:A, Products!D:D, &quot;Not found&quot;)
+=VLOOKUP(A2, Products!A:D, 4, FALSE)
+=INDEX(Products!D:D, MATCH(A2, Products!A:A, 0))</code></pre>
+<p>Full explanations and troubleshooting are in <a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP</a>.</p>
+<h2 id="text">Text</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Formula</th><th scope="col">Example result (A2 contains <code>  jane DOE  </code>)</th></tr></thead><tbody><tr><td><code>=TRIM(A2)</code></td><td>Removes extra spaces: <code>jane DOE</code></td></tr><tr><td><code>=PROPER(TRIM(A2))</code></td><td><code>Jane Doe</code></td></tr><tr><td><code>=UPPER(A2)</code> / <code>=LOWER(A2)</code></td><td>All caps / all lowercase</td></tr><tr><td><code>=LEN(A2)</code></td><td>Number of characters</td></tr><tr><td><code>=LEFT(A2, 3)</code> / <code>=RIGHT(A2, 4)</code></td><td>First 3 / last 4 characters</td></tr><tr><td><code>=MID(A2, 5, 2)</code></td><td>2 characters starting at position 5</td></tr><tr><td><code>=A2&amp;&quot; &quot;&amp;B2</code></td><td>Joins text with a space</td></tr><tr><td><code>=TEXTJOIN(&quot;, &quot;, TRUE, A2:A10)</code></td><td>Joins a range with commas, skipping blanks</td></tr><tr><td><code>=SUBSTITUTE(A2, &quot;-&quot;, &quot;&quot;)</code></td><td>Removes all dashes</td></tr><tr><td><code>=TEXT(B2, &quot;$#,##0.00&quot;)</code></td><td>Formats a number as text, like <code>$1,234.50</code></td></tr></tbody></table></div>
+<p>Split text by a delimiter with <code>=TEXTSPLIT(A2, &quot;,&quot;)</code> in Excel for Microsoft 365, or <code>=SPLIT(A2, &quot;,&quot;)</code> in Google Sheets.</p>
+<h2 id="dates">Dates</h2>
+<p>Spreadsheets store dates as serial numbers, so you can add and subtract them.</p>
+<pre data-lang="excel"><code>=TODAY()                          Current date (updates daily)
+=NOW()                            Current date and time
+=DATE(2026, 11, 2)                Builds a date from year, month, day
+=EOMONTH(A2, 0)                   Last day of A2&#x27;s month
+=EDATE(A2, 3)                     Same day, 3 months later
+=A2+30                            30 days after A2
+=B2-A2                            Days between two dates
+=NETWORKDAYS(A2, B2)              Weekdays between two dates
+=WORKDAY(A2, 10)                  10 working days after A2
+=DATEDIF(A2, TODAY(), &quot;Y&quot;)        Whole years between dates (e.g., age)
+=TEXT(A2, &quot;mmmm yyyy&quot;)            Month name and year, like &quot;November 2026&quot;
+=WEEKDAY(A2, 2)                   1 = Monday ... 7 = Sunday</code></pre>
+<p><code>DATEDIF</code> works in both apps, although Excel does not list it in its formula autocomplete.</p>
+<h2 id="dynamic-arrays">Dynamic arrays</h2>
+<p>These return multiple results that &quot;spill&quot; into neighboring cells. They are available in Excel for Microsoft 365, Excel 2021 and later, and Google Sheets.</p>
+<pre data-lang="excel"><code>=UNIQUE(C2:C200)                          List of distinct values
+=SORT(A2:D200, 4, -1)                     Sort by the 4th column, descending
+=FILTER(A2:D200, C2:C200=&quot;West&quot;)          Only rows where column C is West
+=FILTER(A2:D200, (C2:C200=&quot;West&quot;)*(D2:D200&gt;500))   Two conditions (AND)
+=SORT(UNIQUE(C2:C200))                    Sorted distinct list
+=SEQUENCE(12)                             Numbers 1 through 12</code></pre>
+<p>In Excel, a <code>#SPILL!</code> error means something is blocking the cells where results need to go. In Google Sheets, the equivalent error message says the array result was not expanded because it would overwrite data.</p>
+<h2 id="cleaner-formulas-with-let">Cleaner formulas with LET</h2>
+<p><code>LET</code> names intermediate values so long formulas are easier to read. It works in Excel for Microsoft 365, Excel 2021 and later, and Google Sheets.</p>
+<pre data-lang="excel"><code>=LET(total, SUM(B2:B50), count, COUNT(B2:B50), IF(count=0, 0, total/count))</code></pre>
+<h2 id="common-errors">Common errors</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Error</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>#DIV/0!</code></td><td>Dividing by zero or an empty cell</td></tr><tr><td><code>#N/A</code></td><td>Lookup value not found</td></tr><tr><td><code>#NAME?</code></td><td>Misspelled function name or missing quotes around text</td></tr><tr><td><code>#REF!</code></td><td>Reference points to a deleted cell or outside a range</td></tr><tr><td><code>#VALUE!</code></td><td>Wrong type of data, such as text in a math formula</td></tr><tr><td><code>#SPILL!</code> (Excel)</td><td>Dynamic array results are blocked</td></tr></tbody></table></div>
+<h2 id="handy-keyboard-shortcuts">Handy keyboard shortcuts</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Action</th><th scope="col">Windows</th><th scope="col">Mac</th></tr></thead><tbody><tr><td>Edit the active cell</td><td>F2</td><td>Ctrl+U (Excel)</td></tr><tr><td>Fill down</td><td>Ctrl+D</td><td>Cmd+D</td></tr><tr><td>Insert AutoSum (Excel)</td><td>Alt+=</td><td>Cmd+Shift+T</td></tr><tr><td>Show formulas instead of results</td><td>Ctrl+`</td><td>Ctrl+`</td></tr><tr><td>Jump to the edge of the data</td><td>Ctrl+Arrow</td><td>Cmd+Arrow</td></tr></tbody></table></div>
+<p>Put these into practice in the <a href="/budget-spreadsheet-tutorial.html">budget spreadsheet tutorial</a>, which combines SUMIFS, XLOOKUP, EOMONTH, and conditional formatting.</p>
+
+
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets</a> &mdash; Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.</li><li><a href="/budget-spreadsheet-tutorial.html">How to make a budget spreadsheet in Excel or Google Sheets</a> &mdash; Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.</li><li><a href="/conditional-formatting-guide.html">Conditional formatting in Excel and Google Sheets, with formula examples</a> &mdash; Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>

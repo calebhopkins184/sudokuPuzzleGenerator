@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pivot Tables in Excel and Google Sheets | SparkSheets</title>
+<meta name="description" content="Learn to build pivot tables in Excel and Google Sheets: prepare data, add rows, columns, and values, group dates, show percentages, filter, and refresh results.">
+<link rel="canonical" href="https://sparksheets.com/pivot-tables-guide.html">
+<meta property="og:title" content="Pivot Tables in Excel and Google Sheets | SparkSheets">
+<meta property="og:description" content="Learn to build pivot tables in Excel and Google Sheets: prepare data, add rows, columns, and values, group dates, show percentages, filter, and refresh results.">
+<meta property="og:url" content="https://sparksheets.com/pivot-tables-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pivot Tables in Excel and Google Sheets | SparkSheets">
+<meta name="twitter:description" content="Learn to build pivot tables in Excel and Google Sheets: prepare data, add rows, columns, and values, group dates, show percentages, filter, and refresh results.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Pivot tables in Excel and Google Sheets: a beginner's guide",
+   "description": "Learn to build pivot tables in Excel and Google Sheets: prepare data, add rows, columns, and values, group dates, show percentages, filter, and refresh results.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "SparkSheets",
+    "url": "https://sparksheets.com/"
+   },
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   },
+   "mainEntityOfPage": "https://sparksheets.com/pivot-tables-guide.html",
+   "inLanguage": "en",
+   "wordCount": 1011
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://sparksheets.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Pivot Tables",
+     "item": "https://sparksheets.com/pivot-tables-guide.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html" aria-current="page">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Pivot Tables</li></ol></nav>
+<article class="article">
+<h1>Pivot tables in Excel and Google Sheets: a beginner&#x27;s guide</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the SparkSheets team</p>
+<p class="lede">A pivot table summarizes a large table of data — totals, counts, or averages — grouped by the categories you choose, without writing formulas. You drag fields into Rows, Columns, Values, and Filters, and the spreadsheet does the math. Pivot tables are the fastest way to answer questions like &quot;What were sales by region by month?&quot;</p>
+<h2 id="step-1-prepare-your-data">Step 1: Prepare your data</h2>
+<p>Pivot tables work best with a clean, &quot;tidy&quot; table. Before you start:</p>
+<ul><li><strong>One header row</strong> with a unique name in every column.</li><li><strong>One record per row</strong> — one sale, one transaction, one ticket.</li><li><strong>No blank rows or columns</strong> inside the data.</li><li><strong>No merged cells</strong> and no subtotal rows mixed in.</li><li><strong>Consistent data types</strong> — real dates in date columns, numbers in number columns (not text that looks like numbers).</li></ul>
+<p>Example sales data in <code>A1:E</code> with columns <strong>Date</strong>, <strong>Region</strong>, <strong>Rep</strong>, <strong>Product</strong>, and <strong>Amount</strong>.</p>
+<p>In Excel, click inside the data and press <strong>Ctrl+T</strong> (Cmd+T on Mac) to format it as a table. Tables expand automatically when you add rows, so your pivot table will include new data the next time you refresh.</p>
+<h2 id="step-2-insert-the-pivot-table">Step 2: Insert the pivot table</h2>
+<h3 id="in-excel">In Excel</h3>
+<ol><li>Click any cell in your data.</li><li>Go to <strong>Insert &gt; PivotTable</strong>.</li><li>Confirm the table or range and choose <strong>New Worksheet</strong>.</li><li>Click <strong>OK</strong>. The <strong>PivotTable Fields</strong> pane opens on the right.</li></ol>
+<p>Not sure where to begin? <strong>Insert &gt; Recommended PivotTables</strong> suggests layouts based on your data.</p>
+<h3 id="in-google-sheets">In Google Sheets</h3>
+<ol><li>Select the data range (or click a cell inside it).</li><li>Go to <strong>Insert &gt; Pivot table</strong>.</li><li>Choose <strong>New sheet</strong> and click <strong>Create</strong>. The <strong>Pivot table editor</strong> opens.</li></ol>
+<p>Google Sheets may also show <strong>Suggested</strong> pivot tables at the top of the editor.</p>
+<h2 id="step-3-add-fields-to-the-four-areas">Step 3: Add fields to the four areas</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Area</th><th scope="col">What it does</th><th scope="col">Example</th></tr></thead><tbody><tr><td>Rows</td><td>Creates one row per unique value</td><td>Region</td></tr><tr><td>Columns</td><td>Creates one column per unique value</td><td>Product</td></tr><tr><td>Values</td><td>The numbers to summarize</td><td>Sum of Amount</td></tr><tr><td>Filters</td><td>Limits which records are included</td><td>Rep = &quot;Jordan&quot;</td></tr></tbody></table></div>
+<p>In Excel, drag field names into the areas at the bottom of the pane. In Google Sheets, click <strong>Add</strong> next to each area and choose a field.</p>
+<p>With <strong>Region</strong> in Rows, <strong>Product</strong> in Columns, and <strong>Amount</strong> in Values, you get a grid showing total sales for every region and product combination, with grand totals.</p>
+<h2 id="step-4-change-how-values-are-summarized">Step 4: Change how values are summarized</h2>
+<p>Numeric fields default to <strong>Sum</strong>; text fields default to <strong>Count</strong> (in Google Sheets, COUNTA). To change it:</p>
+<ul><li><strong>Excel:</strong> click the field in Values &gt; <strong>Value Field Settings</strong> &gt; <strong>Summarize Values By</strong> and choose Average, Max, Min, Count, and so on.</li><li><strong>Google Sheets:</strong> use the <strong>Summarize by</strong> dropdown under the value field.</li></ul>
+<p>You can add the same field twice — for example, Sum of Amount and Count of Amount — to see both total revenue and number of sales.</p>
+<h3 id="show-values-as-percentages">Show values as percentages</h3>
+<ul><li><strong>Excel:</strong> Value Field Settings &gt; <strong>Show Values As</strong> &gt; <strong>% of Grand Total</strong>, <strong>% of Column Total</strong>, <strong>% of Row Total</strong>, or <strong>Running Total In</strong>.</li><li><strong>Google Sheets:</strong> use the <strong>Show as</strong> dropdown: <strong>% of row</strong>, <strong>% of column</strong>, or <strong>% of grand total</strong>.</li></ul>
+<h2 id="step-5-group-dates-by-month-quarter-or-year">Step 5: Group dates by month, quarter, or year</h2>
+<p>Raw dates create one row per day, which is rarely useful.</p>
+<ul><li><strong>Excel:</strong> recent versions often group dates automatically when you add a date field. Otherwise, right-click a date in the pivot table &gt; <strong>Group</strong> and select <strong>Months</strong>, <strong>Quarters</strong>, and <strong>Years</strong>. Select both Months and Years if your data spans more than one year, so that January of different years is not combined.</li><li><strong>Google Sheets:</strong> right-click a date in the pivot table &gt; <strong>Create pivot date group</strong> and choose an option such as <strong>Year-Month</strong>.</li></ul>
+<p>If grouping is unavailable, check for blank cells or dates stored as text in the source column.</p>
+<h2 id="step-6-sort-and-filter">Step 6: Sort and filter</h2>
+<ul><li><strong>Sort</strong> by clicking the dropdown on a row label (Excel) or using <strong>Order</strong> and <strong>Sort by</strong> under Rows (Google Sheets). Sorting regions by total sales, largest first, makes rankings obvious.</li><li><strong>Filter</strong> with the Filters area, or with <strong>Top 10</strong> filters in Excel (row label dropdown &gt; Value Filters &gt; Top 10).</li><li><strong>Slicers</strong> (Excel: <strong>PivotTable Analyze &gt; Insert Slicer</strong>; Google Sheets: <strong>Data &gt; Add a slicer</strong>) add clickable filter buttons, handy for dashboards.</li></ul>
+<h2 id="step-7-refresh-when-data-changes">Step 7: Refresh when data changes</h2>
+<p>This is the biggest difference between the two apps:</p>
+<ul><li><strong>Excel pivot tables do not update automatically.</strong> After changing source data, click inside the pivot and choose <strong>PivotTable Analyze &gt; Refresh</strong>, or <strong>Data &gt; Refresh All</strong> to update every pivot in the workbook. If new rows are outside the original range, use <strong>Change Data Source</strong> — or use a table so the range grows on its own.</li><li><strong>Google Sheets pivot tables update automatically</strong> when the source data changes, as long as new rows fall inside the selected range. Selecting whole columns, such as <code>A1:E</code>, covers future rows.</li></ul>
+<h2 id="calculated-fields">Calculated fields</h2>
+<p>You can add a field calculated from others, such as profit from revenue and cost.</p>
+<ul><li><strong>Excel:</strong> <strong>PivotTable Analyze &gt; Fields, Items, &amp; Sets &gt; Calculated Field</strong>, then enter a formula like <code>=Revenue - Cost</code>.</li><li><strong>Google Sheets:</strong> in Values, click <strong>Add &gt; Calculated field</strong> and enter a formula such as <code>=Revenue - Cost</code> using column header names.</li></ul>
+<p>Calculated fields operate on the summed values, so ratios like margin are computed from totals rather than averaged row by row.</p>
+<h2 id="pulling-pivot-results-into-formulas">Pulling pivot results into formulas</h2>
+<p>In Excel, clicking a pivot table cell while typing a formula inserts a <code>GETPIVOTDATA</code> formula instead of a plain cell reference. It returns a specific value from the pivot and keeps working when the layout changes. Google Sheets supports the same function if you type it yourself:</p>
+<pre data-lang="excel"><code>=GETPIVOTDATA(&quot;Amount&quot;, $A$3, &quot;Region&quot;, &quot;West&quot;)</code></pre>
+<p>If you prefer normal cell references, you can turn this off in Excel under <strong>PivotTable Analyze &gt; Options &gt; Generate GetPivotData</strong>.</p>
+<h2 id="pivot-table-vs-formulas">Pivot table vs formulas</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Use a pivot table when...</th><th scope="col">Use formulas (SUMIFS, COUNTIFS) when...</th></tr></thead><tbody><tr><td>You are exploring data and changing the layout often</td><td>The layout is fixed, like a monthly report</td></tr><tr><td>You need quick totals by several categories</td><td>You need results to update instantly in Excel without refreshing</td></tr><tr><td>The data has thousands of rows</td><td>You want custom formatting cell by cell</td></tr></tbody></table></div>
+<p>For a fixed report, formulas such as <code>SUMIFS</code> are covered in the <a href="/spreadsheet-formulas-cheat-sheet.html">formula cheat sheet</a> and used throughout the <a href="/budget-spreadsheet-tutorial.html">budget spreadsheet tutorial</a>.</p>
+
+
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets</a> &mdash; Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.</li><li><a href="/conditional-formatting-guide.html">Conditional formatting in Excel and Google Sheets, with formula examples</a> &mdash; Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.</li><li><a href="/budget-spreadsheet-tutorial.html">How to make a budget spreadsheet in Excel or Google Sheets</a> &mdash; Build a transactions log, category dropdowns, SUMIFS monthly totals, and budget-vs-actual alerts.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>

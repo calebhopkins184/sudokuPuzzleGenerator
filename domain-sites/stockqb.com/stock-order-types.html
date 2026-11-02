@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Order Types: Market, Limit, and Stop Orders | StockQB</title>
+<meta name="description" content="Stock order types explained: market, limit, stop, stop-limit, and trailing stop orders, plus day and GTC time-in-force, with examples of when to use each.">
+<link rel="canonical" href="https://stockqb.com/stock-order-types.html">
+<meta property="og:title" content="Stock Order Types: Market, Limit, and Stop Orders | StockQB">
+<meta property="og:description" content="Stock order types explained: market, limit, stop, stop-limit, and trailing stop orders, plus day and GTC time-in-force, with examples of when to use each.">
+<meta property="og:url" content="https://stockqb.com/stock-order-types.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="StockQB">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stock Order Types: Market, Limit, and Stop Orders | StockQB">
+<meta name="twitter:description" content="Stock order types explained: market, limit, stop, stop-limit, and trailing stop orders, plus day and GTC time-in-force, with examples of when to use each.">
+<meta name="theme-color" content="#123d2a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Stock order types: market, limit, stop, and stop-limit orders",
+   "description": "Stock order types explained: market, limit, stop, stop-limit, and trailing stop orders, plus day and GTC time-in-force, with examples of when to use each.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "StockQB",
+    "url": "https://stockqb.com/"
+   },
+   "publisher": {
+    "@id": "https://stockqb.com/#org"
+   },
+   "mainEntityOfPage": "https://stockqb.com/stock-order-types.html",
+   "inLanguage": "en",
+   "wordCount": 987
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://stockqb.com/#org",
+   "name": "StockQB",
+   "url": "https://stockqb.com/",
+   "logo": "https://stockqb.com/favicon.svg",
+   "email": "hello@stockqb.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://stockqb.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Order Types",
+     "item": "https://stockqb.com/stock-order-types.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="StockQB home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#f5b700"/><ellipse cx="16" cy="16" rx="11" ry="6.5" transform="rotate(-35 16 16)" fill="#7a3e12"/><path d="M11.5 19.5l9-7M13.5 15.2l1.6 1.6M15.6 13.6l1.6 1.6M17.7 12l1.6 1.6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg><span>Stock<span class="qb">QB</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/how-to-read-a-stock-quote.html">Stock Quotes</a></li><li><a href="/pe-ratio-explained.html">P/E Ratio</a></li><li><a href="/etfs-vs-mutual-funds.html">ETFs vs Funds</a></li><li><a href="/dividend-investing-basics.html">Dividends</a></li><li><a href="/stock-order-types.html" aria-current="page">Order Types</a></li><li><a href="/beginner-portfolio-playbook.html">First Portfolio</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Order Types</li></ol></nav>
+<article class="article">
+<h1>Stock order types: market, limit, stop, and stop-limit orders</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the StockQB team</p>
+<p class="lede">A market order buys or sells immediately at the best available price but does not guarantee the price. A limit order guarantees the price — your maximum to buy or minimum to sell — but not that the order will fill. Stop orders wait until a trigger price is reached and then become market or limit orders.</p>
+<h2 id="order-types-at-a-glance">Order types at a glance</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Order type</th><th scope="col">What it does</th><th scope="col">Guarantees</th><th scope="col">Main risk</th></tr></thead><tbody><tr><td>Market</td><td>Buys or sells right now at the best available price</td><td>Execution (in normal markets)</td><td>Price may differ from the last quote</td></tr><tr><td>Limit</td><td>Buys at or below, or sells at or above, your price</td><td>Price</td><td>May never fill</td></tr><tr><td>Stop (stop-loss)</td><td>Becomes a market order once the stop price trades</td><td>Execution after trigger</td><td>Can fill far from the stop in a fast market or gap</td></tr><tr><td>Stop-limit</td><td>Becomes a limit order once the stop price trades</td><td>Price</td><td>May not fill if the price moves past the limit</td></tr><tr><td>Trailing stop</td><td>Stop price follows the market by a set amount or percent</td><td>Execution after trigger</td><td>Same gap risk as a stop order</td></tr></tbody></table></div>
+<h2 id="market-orders">Market orders</h2>
+<p>A market order says &quot;fill this now.&quot; For a large, heavily traded stock or ETF during regular hours, a market order usually fills within a few cents of the quoted price — near the ask when buying and near the bid when selling (see <a href="/how-to-read-a-stock-quote.html">how to read a stock quote</a>).</p>
+<p>Use caution with market orders:</p>
+<ul><li><strong>At the open</strong>, when prices can swing as overnight news is absorbed.</li><li><strong>On thinly traded stocks</strong>, where the spread is wide and there may be few shares at the quoted price.</li><li><strong>During fast-moving news</strong>, when the price can move between your click and the fill.</li></ul>
+<h2 id="limit-orders">Limit orders</h2>
+<p>A <strong>buy limit</strong> sets the maximum you will pay. A <strong>sell limit</strong> sets the minimum you will accept. Your order fills only at your limit price or better.</p>
+<p>Example: XMPL (a hypothetical stock) trades at $48.62. You enter a buy limit at $48.00. If the price falls to $48.00 or lower and there are sellers, you may be filled at $48.00 or less. If XMPL climbs to $52, you never buy.</p>
+<p>Limit orders are the safer choice when spreads are wide, when trading outside regular hours, or when buying less-liquid ETFs. A limit placed near the current ask works like a market order with a safety cap.</p>
+<p>Note that a limit order is not guaranteed to fill even if the stock trades at your price, because other orders at that price may be ahead of yours.</p>
+<h2 id="stop-orders-stop-loss">Stop orders (stop-loss)</h2>
+<p>A <strong>sell stop</strong> sits below the current price. When the stock trades at or below your stop price, it becomes a market order to sell. Investors use it to limit losses or protect gains.</p>
+<p>Example: you own XMPL at $50 and set a sell stop at $45. If XMPL trades down to $45, your order becomes a market sell and fills at the next available price.</p>
+<p>The catch is <strong>gaps</strong>. If XMPL closes at $47 and bad news overnight makes it open at $40, your stop triggers at the open and sells near $40 — not $45. A stop order guarantees you get out, not the price you get out at.</p>
+<p>A <strong>buy stop</strong> sits above the current price and triggers a market buy if the price rises to it. Traders use it to enter on breakouts or to limit losses on short positions.</p>
+<h2 id="stop-limit-orders">Stop-limit orders</h2>
+<p>A stop-limit has two prices: the <strong>stop</strong> that triggers it and the <strong>limit</strong> that caps the fill price.</p>
+<p>Example: sell stop at $45, limit at $44. If XMPL trades at $45, a sell limit at $44 goes live. You will sell at $44 or better — or not at all. In the overnight-gap example, with XMPL opening at $40, the order triggers but does not fill, and you still own the shares as they fall.</p>
+<p>That is the trade-off: <strong>stop orders risk a bad price; stop-limit orders risk no fill.</strong></p>
+<h2 id="trailing-stop-orders">Trailing stop orders</h2>
+<p>A trailing stop sets the stop a fixed dollar amount or percentage below the market&#x27;s highest price since you placed the order. As the price rises, the stop rises with it; when the price falls, the stop stays put.</p>
+<p>Example: a 10% trailing stop on a stock at $50 starts with a stop at $45. If the stock climbs to $60, the stop moves to $54. If the stock then falls to $54, the order triggers as a market sell. Trailing stops can lock in gains automatically but share the same gap risk as regular stops, and a tight trail can trigger on normal daily swings.</p>
+<h2 id="time-in-force-how-long-your-order-lasts">Time in force: how long your order lasts</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Day</td><td>Expires at the end of the current trading session if not filled</td></tr><tr><td>Good &#x27;til canceled (GTC)</td><td>Stays open until filled or canceled; many brokers cancel GTC orders automatically after a set period, often 60 to 180 days</td></tr><tr><td>Extended hours</td><td>Eligible for pre-market or after-hours sessions; usually limit orders only</td></tr><tr><td>Fill or kill / immediate or cancel</td><td>Must fill immediately (entirely, or as much as possible), or the order is canceled</td></tr></tbody></table></div>
+<p>Check your broker&#x27;s specific rules; they vary.</p>
+<h2 id="other-details-beginners-run-into">Other details beginners run into</h2>
+<ul><li><strong>Fractional shares.</strong> Many brokers only allow market orders for fractional shares, or execute them at set times.</li><li><strong>Partial fills.</strong> A large limit order can fill in pieces over time. Some brokers charge per execution on certain products, so check fees.</li><li><strong>Settlement.</strong> U.S. stock trades settle one business day after the trade date (T+1). Selling a stock and immediately using the proceeds in a cash account can be restricted until settlement — ask your broker how it handles unsettled funds.</li><li><strong>Market hours.</strong> Regular hours on the NYSE and Nasdaq are 9:30 a.m. to 4:00 p.m. Eastern Time.</li></ul>
+<h2 id="which-order-should-a-long-term-investor-use">Which order should a long-term investor use?</h2>
+<p>For buying a broad, heavily traded ETF during regular hours to hold for years, a market order or a limit order set near the ask both work well. For anything thinly traded, during extended hours, or in a volatile market, use a limit order. Use stop orders deliberately, understanding that they can sell at a worse price than you expect.</p>
+<p>The SEC and FINRA publish plain-language explainers on order types; <a href="https://www.investor.gov/" rel="noopener">Investor.gov</a> is a good place to start.</p>
+
+<aside class="disclaimer" aria-label="Disclaimer"><p><strong>Educational content only — not investment advice.</strong> StockQB is not a broker-dealer or registered investment adviser and does not recommend any security. Examples use hypothetical companies and numbers. Investing involves risk, including loss of principal. Consult a licensed financial professional about your own situation.</p></aside>
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/how-to-read-a-stock-quote.html">How to read a stock quote: every field explained</a> &mdash; Ticker, bid/ask, volume, market cap, 52-week range, and the other numbers on a quote page.</li><li><a href="/etfs-vs-mutual-funds.html">ETFs vs mutual funds: the key differences explained</a> &mdash; How ETFs and mutual funds trade, what they cost, how they are taxed, and which fits you.</li><li><a href="/beginner-portfolio-playbook.html">How to build a beginner stock portfolio: a step-by-step playbook</a> &mdash; Choose an account, set an asset allocation, pick low-cost funds, automate, and rebalance.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/how-to-read-a-stock-quote.html">Stock Quotes</a></li><li><a href="/pe-ratio-explained.html">P/E Ratio</a></li><li><a href="/etfs-vs-mutual-funds.html">ETFs vs Funds</a></li><li><a href="/dividend-investing-basics.html">Dividends</a></li><li><a href="/stock-order-types.html">Order Types</a></li><li><a href="/beginner-portfolio-playbook.html">First Portfolio</a></li></ul></nav>
+<p>Educational only. Not investment advice. Investing involves risk, including possible loss of principal.</p><p>&copy; 2026 StockQB. Your stock market quarterback: investing education, play by play.</p>
+</div></footer>
+</body>
+</html>

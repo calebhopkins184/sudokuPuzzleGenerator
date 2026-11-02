@@ -1,0 +1,15 @@
+# AK Circle
+
+> An independent guide to living in Alaska: moving here, seasons and daylight, northern lights viewing, things to do in Anchorage, and practical winter living tips.
+
+## Pages
+
+- [Home](https://akcircle.com/): Overview of AK Circle's Alaska living guides with a quick-facts table and FAQs.
+- [Moving to Alaska: A Practical Relocation Guide](https://akcircle.com/moving-to-alaska.html): How to get yourself, your vehicle and your stuff north, plus residency steps, housing and cost-of-living realities.
+- [Northern Lights in Alaska: When and Where to See the Aurora](https://akcircle.com/northern-lights-alaska.html): Aurora season, the best viewing hours, how to read forecasts, top viewing spots, and phone and camera tips.
+- [Alaska Daylight Hours and Seasons, Explained](https://akcircle.com/alaska-daylight-seasons.html): Real daylight numbers for major Alaska towns, what midnight sun and polar night mean, and how locals handle the swings.
+- [Things to Do in Anchorage, Alaska, in Every Season](https://akcircle.com/things-to-do-in-anchorage.html): Trails, museums, wildlife viewing, fishing, festivals and day trips from Alaska's largest city, sorted by season.
+- [Alaska Winter Living Tips: Cars, Homes, Clothing and Mindset](https://akcircle.com/winter-living-alaska.html): How Alaskans keep cars starting, pipes flowing and spirits up through long, cold winters.
+- [About](https://akcircle.com/about.html): Who runs AK Circle, what it covers and how guides are researched.
+- [Contact](https://akcircle.com/contact.html): How to reach AK Circle by email.
+- [Privacy Policy](https://akcircle.com/privacy.html): What data the site collects and how it is used.

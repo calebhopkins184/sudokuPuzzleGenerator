@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Make a Budget Spreadsheet in Excel | SparkSheets</title>
+<meta name="description" content="Build a monthly budget spreadsheet in Excel or Google Sheets: a transactions log, category dropdowns, SUMIFS monthly totals, and over-budget alerts.">
+<link rel="canonical" href="https://sparksheets.com/budget-spreadsheet-tutorial.html">
+<meta property="og:title" content="How to Make a Budget Spreadsheet in Excel | SparkSheets">
+<meta property="og:description" content="Build a monthly budget spreadsheet in Excel or Google Sheets: a transactions log, category dropdowns, SUMIFS monthly totals, and over-budget alerts.">
+<meta property="og:url" content="https://sparksheets.com/budget-spreadsheet-tutorial.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SparkSheets">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Make a Budget Spreadsheet in Excel | SparkSheets">
+<meta name="twitter:description" content="Build a monthly budget spreadsheet in Excel or Google Sheets: a transactions log, category dropdowns, SUMIFS monthly totals, and over-budget alerts.">
+<meta name="theme-color" content="#0f6b3e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "How to make a budget spreadsheet in Excel or Google Sheets",
+   "description": "Build a monthly budget spreadsheet in Excel or Google Sheets: a transactions log, category dropdowns, SUMIFS monthly totals, and over-budget alerts.",
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "author": {
+    "@type": "Organization",
+    "name": "SparkSheets",
+    "url": "https://sparksheets.com/"
+   },
+   "publisher": {
+    "@id": "https://sparksheets.com/#org"
+   },
+   "mainEntityOfPage": "https://sparksheets.com/budget-spreadsheet-tutorial.html",
+   "inLanguage": "en",
+   "wordCount": 915
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://sparksheets.com/#org",
+   "name": "SparkSheets",
+   "url": "https://sparksheets.com/",
+   "logo": "https://sparksheets.com/favicon.svg",
+   "email": "hello@sparksheets.com"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://sparksheets.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Budget Sheet",
+     "item": "https://sparksheets.com/budget-spreadsheet-tutorial.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/" aria-label="SparkSheets home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0f6b3e"/><path d="M4 11h24M4 18h24M4 25h24M12 4v24M20 4v24" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.2"/><path d="M18 4l-7 13h6l-3 11 9-15h-6l3-9z" fill="#ff7a1a" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg><span>Spark<span class="sheets">Sheets</span></span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html" aria-current="page">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Budget Sheet</li></ol></nav>
+<article class="article">
+<h1>How to make a budget spreadsheet in Excel or Google Sheets</h1>
+<p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the SparkSheets team</p>
+<p class="lede">A good budget spreadsheet has three parts: a list of categories with monthly targets, a transactions log where you record every income and expense, and a summary that totals actual spending by category for the month using SUMIFS. Add a dropdown for categories and conditional formatting for overspending, and you have a reusable budget in under an hour.</p>
+<h2 id="the-structure-three-tabs">The structure: three tabs</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Tab</th><th scope="col">Purpose</th><th scope="col">Columns</th></tr></thead><tbody><tr><td>Categories</td><td>Your list of categories and monthly budget for each</td><td>Category, Type, Monthly budget</td></tr><tr><td>Transactions</td><td>One row per income or expense</td><td>Date, Description, Category, Amount</td></tr><tr><td>Summary</td><td>Budget vs actual for a chosen month</td><td>Category, Budget, Actual, Remaining, % used</td></tr></tbody></table></div>
+<p>Keeping raw data (transactions) separate from reporting (summary) means you never have to rebuild formulas — you just add rows.</p>
+<h2 id="step-1-build-the-categories-tab">Step 1: Build the Categories tab</h2>
+<p>In a tab named <strong>Categories</strong>, enter headers in row 1 and your categories below:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th></tr></thead><tbody><tr><td>1</td><td>Category</td><td>Type</td><td>Monthly budget</td></tr><tr><td>2</td><td>Paycheck</td><td>Income</td><td>4,200</td></tr><tr><td>3</td><td>Rent</td><td>Expense</td><td>1,350</td></tr><tr><td>4</td><td>Groceries</td><td>Expense</td><td>450</td></tr><tr><td>5</td><td>Utilities</td><td>Expense</td><td>160</td></tr><tr><td>6</td><td>Transportation</td><td>Expense</td><td>220</td></tr><tr><td>7</td><td>Dining out</td><td>Expense</td><td>250</td></tr><tr><td>8</td><td>Fun</td><td>Expense</td><td>200</td></tr><tr><td>9</td><td>Savings</td><td>Expense</td><td>800</td></tr></tbody></table></div>
+<p>Treat savings as a &quot;spending&quot; category so it gets a target like any other bill. The numbers above are just placeholders; use your own.</p>
+<h2 id="step-2-build-the-transactions-tab">Step 2: Build the Transactions tab</h2>
+<p>Create a tab named <strong>Transactions</strong> with headers <strong>Date</strong>, <strong>Description</strong>, <strong>Category</strong>, and <strong>Amount</strong> in <code>A1:D1</code>. Enter every amount as a <strong>positive number</strong>; the category&#x27;s type tells the summary whether it is income or an expense.</p>
+<p>In Excel, click inside the data and press <strong>Ctrl+T</strong> to make it a table named, for example, <code>Tx</code>. Tables expand automatically and let you write readable formulas like <code>Tx[Amount]</code>. In Google Sheets, use open-ended ranges like <code>Transactions!D2:D</code> so new rows are always included.</p>
+<h3 id="add-a-category-dropdown">Add a category dropdown</h3>
+<p>A dropdown prevents typos like &quot;Grocery&quot; vs &quot;Groceries&quot; that would break your totals.</p>
+<ul><li><strong>Excel:</strong> select the Category column, then <strong>Data &gt; Data Validation &gt; Allow: List</strong>, and set the source to <code>=Categories!$A$2:$A$20</code>.</li><li><strong>Google Sheets:</strong> select <code>C2:C</code>, then <strong>Data &gt; Data validation &gt; Add rule</strong>, choose <strong>Dropdown (from a range)</strong>, and enter <code>Categories!A2:A20</code>.</li></ul>
+<h3 id="importing-bank-transactions">Importing bank transactions</h3>
+<p>Most banks let you download a CSV file. In Excel use <strong>Data &gt; From Text/CSV</strong>; in Google Sheets use <strong>File &gt; Import</strong>. Banks often export expenses as negative numbers. If yours does, convert them in a helper column with <code>=ABS(D2)</code> or flip the sign with <code>=-D2</code>.</p>
+<h2 id="step-3-build-the-summary-tab">Step 3: Build the Summary tab</h2>
+<p>In a tab named <strong>Summary</strong>, put the month you want to view in <code>B1</code> as the <strong>first day of that month</strong> (for example, 11/1/2026), with the label &quot;Month&quot; in <code>A1</code>. Then set up a table starting in row 3:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><td>3</td><td>Category</td><td>Budget</td><td>Actual</td><td>Remaining</td><td>% used</td></tr></tbody></table></div>
+<p>Fill <code>A4</code> downward with the same categories as the Categories tab.</p>
+<h3 id="budget-column">Budget column</h3>
+<p>Pull each category&#x27;s budget from the Categories tab:</p>
+<pre data-lang="excel"><code>=XLOOKUP($A4, Categories!$A$2:$A$20, Categories!$C$2:$C$20, 0)</code></pre>
+<p>In older Excel versions, use <code>=IFNA(VLOOKUP($A4, Categories!$A$2:$C$20, 3, FALSE), 0)</code>. See <a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP</a> for how these work.</p>
+<h3 id="actual-column-sumifs-by-category-and-month">Actual column: SUMIFS by category and month</h3>
+<p>This is the heart of the budget. It adds up every transaction in the category whose date falls within the month in <code>B1</code>:</p>
+<pre data-lang="excel"><code>=SUMIFS(Transactions!$D:$D, Transactions!$C:$C, $A4, Transactions!$A:$A, &quot;&gt;=&quot;&amp;$B$1, Transactions!$A:$A, &quot;&lt;=&quot;&amp;EOMONTH($B$1, 0))</code></pre>
+<ul><li><code>&quot;&gt;=&quot;&amp;$B$1</code> means &quot;on or after the first of the month.&quot;</li><li><code>EOMONTH($B$1, 0)</code> returns the last day of that month.</li></ul>
+<p>With an Excel table named <code>Tx</code>, the same formula reads more clearly:</p>
+<pre data-lang="excel"><code>=SUMIFS(Tx[Amount], Tx[Category], $A4, Tx[Date], &quot;&gt;=&quot;&amp;$B$1, Tx[Date], &quot;&lt;=&quot;&amp;EOMONTH($B$1, 0))</code></pre>
+<p>Change <code>B1</code> to another month, and the whole summary updates.</p>
+<h3 id="remaining-and-percent-used">Remaining and percent used</h3>
+<pre data-lang="excel"><code>D4: =B4-C4
+E4: =IF(B4=0, &quot;&quot;, C4/B4)</code></pre>
+<p>Format column E as a percentage. Copy <code>B4:E4</code> down to the last category.</p>
+<h3 id="totals-and-net-cash-flow">Totals and net cash flow</h3>
+<p>Below the table, add totals that separate income from expenses. With labels in column A and formulas in column C:</p>
+<pre data-lang="excel"><code>C22 (Total income):    =SUMIFS(C4:C20, A4:A20, &quot;Paycheck&quot;)
+C23 (Total expenses):  =SUM(C4:C20)-C22
+C24 (Net):             =C22-C23</code></pre>
+<p>If you have several income categories, add a Type column to the Summary with <code>=XLOOKUP($A4, Categories!$A$2:$A$20, Categories!$B$2:$B$20)</code> and use <code>SUMIFS(C4:C20, F4:F20, &quot;Income&quot;)</code> instead.</p>
+<p>A useful extra metric is your <strong>savings rate</strong>: savings divided by income.</p>
+<pre data-lang="excel"><code>C25 (Savings rate):    =XLOOKUP(&quot;Savings&quot;, A4:A20, C4:C20)/C22</code></pre>
+<h2 id="step-4-add-visual-alerts">Step 4: Add visual alerts</h2>
+<p>Use <a href="/conditional-formatting-guide.html">conditional formatting</a> so problems jump out:</p>
+<ol><li>Select the Actual cells for your expense categories only — in this example <code>C5:C12</code>, skipping the Paycheck row — and add a custom formula rule <code>=$C5&gt;$B5</code> with a light red fill. Any category over budget turns red.</li><li>Select <code>E5:E12</code> and apply a color scale from white (0%) to orange (100%) so you can see which categories are nearly used up.</li></ol>
+<h2 id="step-5-track-trends-across-months">Step 5: Track trends across months</h2>
+<p>To compare months side by side, build a small grid with categories down column A and month start dates across row 1 (for example, <code>B1</code> = 1/1/2026, <code>C1</code> = 2/1/2026, and so on). Then use a SUMIFS that reads its month from the header:</p>
+<pre data-lang="excel"><code>=SUMIFS(Transactions!$D:$D, Transactions!$C:$C, $A2, Transactions!$A:$A, &quot;&gt;=&quot;&amp;B$1, Transactions!$A:$A, &quot;&lt;=&quot;&amp;EOMONTH(B$1, 0))</code></pre>
+<p>Note the mixed references: <code>$A2</code> locks the category column and <code>B$1</code> locks the header row, so one formula fills the whole grid. Generate the next month&#x27;s header with <code>=EDATE(B1, 1)</code>.</p>
+<p>Add a tiny trend line next to each row with <code>=SPARKLINE(B2:M2)</code> in Google Sheets, or <strong>Insert &gt; Sparklines &gt; Line</strong> in Excel.</p>
+<h2 id="maintenance-tips">Maintenance tips</h2>
+<ul><li><strong>Enter transactions weekly</strong>, not monthly, so the task stays quick.</li><li><strong>Reconcile</strong> your spreadsheet balance against your bank statement once a month.</li><li><strong>Keep a &quot;Misc&quot; category</strong> small; if it grows, split it into real categories.</li><li><strong>Duplicate the file each January</strong> and clear the transactions to start a new year, or keep one file and filter by year.</li><li><strong>Protect formula cells</strong> (Excel: Review &gt; Protect Sheet; Sheets: Data &gt; Protect sheets and ranges) so they are not overwritten accidentally.</li></ul>
+
+
+<aside class="related" aria-labelledby="related"><h2 id="related">Related guides</h2><ul><li><a href="/conditional-formatting-guide.html">Conditional formatting in Excel and Google Sheets, with formula examples</a> &mdash; Built-in rules, color scales, and custom-formula rules for rows, due dates, and duplicates.</li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Essential Excel and Google Sheets formulas cheat sheet</a> &mdash; Copyable formulas for math, logic, lookups, text, dates, and dynamic arrays.</li><li><a href="/xlookup-vs-vlookup.html">XLOOKUP vs VLOOKUP: how to look up data in Excel and Google Sheets</a> &mdash; Side-by-side syntax, exact and approximate matches, left lookups, and common error fixes.</li></ul></aside>
+</article>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<nav aria-label="Footer"><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+<ul><li><a href="/xlookup-vs-vlookup.html">XLOOKUP</a></li><li><a href="/pivot-tables-guide.html">Pivot Tables</a></li><li><a href="/conditional-formatting-guide.html">Conditional Formatting</a></li><li><a href="/budget-spreadsheet-tutorial.html">Budget Sheet</a></li><li><a href="/spreadsheet-formulas-cheat-sheet.html">Formula Cheat Sheet</a></li></ul></nav>
+<p>Microsoft Excel is a trademark of Microsoft Corporation. Google Sheets is a trademark of Google LLC. SparkSheets is independent and not affiliated with either company.</p><p>&copy; 2026 SparkSheets. Excel and Google Sheets tutorials with formulas you can copy.</p>
+</div></footer>
+</body>
+</html>
