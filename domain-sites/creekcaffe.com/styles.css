@@ -93,3 +93,4 @@ code,pre,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation 
 .recipe dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;margin:0}
 .recipe dt{font-weight:700}
 .recipe dd{margin:0}
+.hero .lede{color:var(--hero-text)}
