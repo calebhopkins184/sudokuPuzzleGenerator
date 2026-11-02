@@ -1,0 +1,16 @@
+# High Qulity
+
+> Buy-it-for-life guides that teach you to spot real quality in clothing, cookware, hand tools, furniture, and footwear, and to judge value by cost per use.
+
+## Pages
+
+- [Home](https://highqulity.com/): Overview of High Qulity's buy-it-for-life guides and quick answers about judging quality.
+- [How to tell quality clothing: fabric, stitching, and construction](https://highqulity.com/how-to-tell-quality-clothing.html): Judge clothing quality by fiber, fabric density, stitch count, seam finishes, buttons, and fit details.
+- [Cast iron vs stainless steel vs carbon steel: cookware that lasts](https://highqulity.com/cookware-materials-cast-iron-stainless-carbon-steel.html): Compare long-lasting cookware metals, spot good construction, and know why nonstick wears out.
+- [Buy-it-for-life hand tools: how to spot tools that last](https://highqulity.com/buy-it-for-life-hand-tools.html): Choose durable hand tools by forging, steel type, fit and finish, handles, and warranty terms.
+- [How to judge furniture quality: materials, joinery, and upholstery](https://highqulity.com/how-to-judge-furniture-quality.html): Tell well-built furniture from flat-pack by materials, joints, drawers, frames, springs, and cushions.
+- [Goodyear welt vs cemented shoes: construction that lasts](https://highqulity.com/goodyear-welt-vs-cemented-shoes.html): Shoe constructions (Goodyear welt, Blake, stitchdown, cemented), resoling, leather grades, and care.
+- [Cost per use: how to calculate what something really costs](https://highqulity.com/cost-per-use.html): The cost-per-use formula, worked examples, and when the math helps or misleads.
+- [About High Qulity](https://highqulity.com/about.html): What High Qulity is, why it's spelled that way, and how the guides are written.
+- [Contact High Qulity](https://highqulity.com/contact.html): How to reach the High Qulity team by email.
+- [Privacy Policy](https://highqulity.com/privacy.html): How High Qulity handles visitor data: minimal collection, no selling of data.

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Apps on Ubuntu: apt vs snap vs Flatpak | UbuntuApps</title>
+<meta name="description" content="How to install apps on Ubuntu with apt, snap, Flatpak, .deb files, and AppImage: what each format is, the exact commands to use, and how to pick the right one.">
+<link rel="canonical" href="https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html">
+<meta property="og:title" content="Install Apps on Ubuntu: apt vs snap vs Flatpak | UbuntuApps">
+<meta property="og:description" content="How to install apps on Ubuntu with apt, snap, Flatpak, .deb files, and AppImage: what each format is, the exact commands to use, and how to pick the right one.">
+<meta property="og:url" content="https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="UbuntuApps">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install Apps on Ubuntu: apt vs snap vs Flatpak | UbuntuApps">
+<meta name="twitter:description" content="How to install apps on Ubuntu with apt, snap, Flatpak, .deb files, and AppImage: what each format is, the exact commands to use, and how to pick the right one.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to install apps on Ubuntu: apt vs snap vs Flatpak vs .deb vs AppImage",
+      "description": "How to install apps on Ubuntu with apt, snap, Flatpak, .deb files, and AppImage: what each format is, the exact commands to use, and how to pick the right one.",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html",
+      "url": "https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html",
+      "author": {
+        "@type": "Organization",
+        "name": "UbuntuApps",
+        "url": "https://ubuntuapps.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://ubuntuapps.com/#org",
+        "name": "UbuntuApps",
+        "url": "https://ubuntuapps.com/",
+        "logo": "https://ubuntuapps.com/favicon.svg",
+        "email": "hello@ubuntuapps.com"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ubuntuapps.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Installing apps",
+          "item": "https://ubuntuapps.com/install-apps-ubuntu-apt-snap-flatpak.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I have both a snap and an apt version of the same app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, they install side by side, which can be confusing. You'll see two entries in your app menu. Remove the one you don't want with sudo snap remove or sudo apt remove ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does apt install a snap for Firefox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since Ubuntu 22.04, the firefox apt package is a transitional package that installs the Firefox snap. Mozilla also publishes its own apt repository if you prefer a .deb build."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are PPAs safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PPA is a third-party repository that can update any package on your system. Use PPAs only from projects you trust, such as an app's official developers, and remove them before major release upgrades if they cause problems."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="page-install-apps-ubuntu-apt-snap-flatpak">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><svg class="logo" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#1e1b3a"/><path d="M8 11l6 5-6 5" fill="none" stroke="#ff9e4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 22h8" stroke="#e9e6ff" stroke-width="2.6" stroke-linecap="round"/></svg><span class="brand-name">UbuntuApps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/">Home</a></li><li><a href="/best-ubuntu-apps.html">Best apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html" aria-current="page">Installing apps</a></li><li><a href="/things-to-install-after-ubuntu.html">After install</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap main" tabindex="-1">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Installing apps</li></ol></nav>
+<article class="article">
+  <header class="article-header">
+    <p class="kicker">How-to</p>
+    <h1>How to install apps on Ubuntu: apt vs snap vs Flatpak vs .deb vs AppImage</h1>
+    <p class="lede">Ubuntu supports five common ways to install software. Use apt for most system tools and libraries, snaps or App Center for convenient self-updating desktop apps, Flatpak if you want Flathub's catalog, a .deb from the developer when there's no repository package, and AppImage for portable apps.</p>
+    <p class="meta">Updated <time datetime="2026-11-02">November 2, 2026</time> &middot; By the UbuntuApps team</p>
+  </header>
+  <div class="prose">
+<h2>The formats at a glance</h2>
+<table>
+  <thead><tr><th>Format</th><th>Where apps come from</th><th>Updates</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td>apt (.deb repos)</td><td>Ubuntu archive and added repositories</td><td>With system updates</td><td>System tools, libraries, servers, stable desktop apps</td></tr>
+    <tr><td>snap</td><td>Snap Store (built in)</td><td>Automatic, in the background</td><td>Desktop apps that update often, developer tools</td></tr>
+    <tr><td>Flatpak</td><td>Flathub (must be added)</td><td><code>flatpak update</code> or GNOME Software</td><td>Large desktop app catalog, often newest versions</td></tr>
+    <tr><td>.deb file</td><td>Downloaded from a developer's website</td><td>Only if it adds a repository</td><td>Apps not in any store (some vendors' official builds)</td></tr>
+    <tr><td>AppImage</td><td>Downloaded single file</td><td>Manual (some apps self-update)</td><td>Portable apps, trying software without installing</td></tr>
+  </tbody>
+</table>
+
+<h2>apt: Ubuntu's native package manager</h2>
+<p>apt installs .deb packages from Ubuntu's repositories, which are split into <em>main</em> and <em>restricted</em> (supported by Canonical) and <em>universe</em> and <em>multiverse</em> (community-maintained and restricted-license software). Packages in an LTS release are kept stable and receive security fixes, but usually don't jump to new major versions.</p>
+<pre><code># Always refresh package lists first
+sudo apt update
+
+# Search and get details
+apt search image editor
+apt show gimp
+
+# Install, upgrade everything, remove
+sudo apt install gimp
+sudo apt upgrade
+sudo apt remove gimp
+sudo apt autoremove      # clean up unused dependencies
+
+# Enable the universe repository if a package isn't found
+sudo add-apt-repository universe</code></pre>
+<p>Use apt for anything that integrates deeply with the system, such as drivers, command-line tools, programming languages, and servers.</p>
+
+<h2>snap: Canonical's universal packages</h2>
+<p>Snaps bundle an app with its dependencies, run with confinement (sandboxing), and update automatically. App Center, Ubuntu's built-in store since 23.10, is built around snaps, and some core apps such as Firefox ship as snaps by default.</p>
+<pre><code>snap find spotify
+sudo snap install spotify
+sudo snap install code --classic   # "classic" = less confinement, needed by some dev tools
+snap list
+sudo snap refresh                  # update now instead of waiting
+sudo snap revert spotify           # roll back to the previous version
+sudo snap remove spotify</code></pre>
+<p><strong>Pros:</strong> same version across Ubuntu releases, automatic updates, easy rollback, and many apps published by their own developers. <strong>Cons:</strong> larger disk use, sometimes slower first launch, and occasional theming or file-access quirks from confinement. Check the publisher name on the store page; a green check or star means a verified publisher.</p>
+
+<h2>Flatpak and Flathub</h2>
+<p>Flatpak is another sandboxed, distribution-independent format. Its main repository, Flathub, has a large catalog of desktop apps, often with recent versions. Ubuntu doesn't include Flatpak by default, but it takes a minute to set up:</p>
+<pre><code>sudo apt install flatpak
+# Optional: GNOME Software with Flatpak support (installs alongside App Center)
+sudo apt install gnome-software-plugin-flatpak
+# Add the Flathub repository
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</code></pre>
+<p>Log out and back in (or restart) so Flatpak apps appear in your menu. Then:</p>
+<pre><code>flatpak search kdenlive
+flatpak install flathub org.kde.kdenlive
+flatpak run org.kde.kdenlive
+flatpak update
+flatpak uninstall --unused     # remove leftover runtimes</code></pre>
+<p>Flathub marks apps published by their developers as verified. The <strong>Flatseal</strong> app lets you review and change each Flatpak's permissions.</p>
+
+<h2>.deb files from developers</h2>
+<p>Some vendors, such as Google (Chrome), Microsoft (VS Code), and Valve (Steam), publish official .deb packages on their websites. Install them with apt so dependencies are resolved automatically:</p>
+<pre><code>sudo apt install ./google-chrome-stable_current_amd64.deb</code></pre>
+<p>The <code>./</code> matters: it tells apt to use the local file. Many official .deb installers also add the vendor's repository so the app updates with <code>sudo apt upgrade</code>. Only install .deb files from sources you trust, because they run with administrator privileges during installation.</p>
+
+<h2>AppImage: portable single-file apps</h2>
+<p>An AppImage is one file that contains the app and its dependencies. Nothing is installed system-wide.</p>
+<pre><code>chmod +x Obsidian-x.y.z.AppImage
+./Obsidian-x.y.z.AppImage</code></pre>
+<p>Many AppImages require the FUSE 2 library, which isn't installed by default on recent Ubuntu releases. On Ubuntu 22.04 install <code>libfuse2</code>; on 24.04 and later the package is <code>libfuse2t64</code>. Don't install the older <code>fuse</code> package, which can conflict with the system's FUSE 3. Since Ubuntu 24.04, AppArmor restrictions on unprivileged user namespaces can also stop some Electron-based AppImages from launching; check the app's documentation for the recommended fix.</p>
+<p>AppImages don't add menu entries automatically. Tools such as Gear Lever (Flatpak) can integrate them into your app menu and manage updates.</p>
+
+<h2>PPAs: use sparingly</h2>
+<p>A Personal Package Archive (PPA) is a third-party apt repository hosted on Launchpad. Some projects, like OBS Studio, maintain official PPAs that provide newer versions than the Ubuntu archive.</p>
+<pre><code>sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update &amp;&amp; sudo apt install obs-studio
+# Remove a PPA later
+sudo add-apt-repository --remove ppa:obsproject/obs-studio</code></pre>
+<p>Each PPA you add can replace system packages, so stick to official ones and keep the list short.</p>
+
+<h2>Which should you use?</h2>
+<ol>
+  <li><strong>Is it a command-line tool, library, driver, or server?</strong> Use apt.</li>
+  <li><strong>Is it a desktop app in App Center from a verified publisher?</strong> The snap is the easy path.</li>
+  <li><strong>Want a newer version or an app only on Flathub?</strong> Use Flatpak.</li>
+  <li><strong>Vendor offers an official .deb with its own repository?</strong> That's a good choice for apps like Chrome and VS Code.</li>
+  <li><strong>Want to try something without installing, or carry it on a USB drive?</strong> AppImage.</li>
+</ol>
+<p>Whatever you choose, prefer one format per app, and get packages from the developer or an official store rather than random download sites.</p>
+
+  </div>
+  <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2><div class="faq-item"><h3>Can I have both a snap and an apt version of the same app?</h3><p>Yes, they install side by side, which can be confusing. You'll see two entries in your app menu. Remove the one you don't want with <code>sudo snap remove</code> or <code>sudo apt remove</code>.</p></div><div class="faq-item"><h3>Why does apt install a snap for Firefox?</h3><p>Since Ubuntu 22.04, the firefox apt package is a transitional package that installs the Firefox snap. Mozilla also publishes its own apt repository if you prefer a .deb build.</p></div><div class="faq-item"><h3>Are PPAs safe?</h3><p>A PPA is a third-party repository that can update any package on your system. Use PPAs only from projects you trust, such as an app's official developers, and remove them before major release upgrades if they cause problems.</p></div></section>
+  
+</article>
+<section class="related" aria-labelledby="related-h">
+  <h2 id="related-h">Related guides</h2>
+  <ul class="related-list"><li><a href="/things-to-install-after-ubuntu.html">Things to do after installing Ubuntu: a practical checklist</a><span>Post-install checklist: updates, drivers, codecs, backups, firewall, Flatpak, and essential apps.</span></li><li><a href="/best-ubuntu-apps.html">The best apps for Ubuntu, by category</a><span>Recommended Ubuntu apps for browsing, office, media, creative work, development, notes, and gaming.</span></li><li><a href="/ubuntu-lts-releases.html">Ubuntu LTS releases explained: support timelines and upgrades</a><span>Ubuntu LTS vs interim releases, support timelines, Ubuntu Pro ESM, and safe upgrade steps.</span></li></ul>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">UbuntuApps</p>
+      <p>Independent guides to finding, installing, and choosing apps on Ubuntu Linux.</p>
+    </div>
+    <nav aria-label="Guides">
+      <p class="footer-heading">Guides</p>
+      <ul><li><a href="/best-ubuntu-apps.html">Best Ubuntu apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html">apt vs snap vs Flatpak</a></li><li><a href="/things-to-install-after-ubuntu.html">After installing Ubuntu</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Windows &amp; Mac alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li></ul>
+    </nav>
+    <nav aria-label="Site">
+      <p class="footer-heading">Site</p>
+      <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p class="footer-note">Ubuntu is a registered trademark of Canonical Ltd. This site is not affiliated with Canonical. Other product names are trademarks of their respective owners.</p>
+    <p>&copy; 2026 UbuntuApps. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

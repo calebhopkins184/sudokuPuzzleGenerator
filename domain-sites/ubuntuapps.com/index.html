@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Ubuntu Apps &amp; How to Install Them | UbuntuApps</title>
+<meta name="description" content="Find the best apps for Ubuntu and learn to install them with apt, snap, Flatpak, .deb, or AppImage, plus a post-install checklist and an LTS release guide.">
+<link rel="canonical" href="https://ubuntuapps.com/">
+<meta property="og:title" content="Best Ubuntu Apps &amp; How to Install Them | UbuntuApps">
+<meta property="og:description" content="Find the best apps for Ubuntu and learn to install them with apt, snap, Flatpak, .deb, or AppImage, plus a post-install checklist and an LTS release guide.">
+<meta property="og:url" content="https://ubuntuapps.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UbuntuApps">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Best Ubuntu Apps &amp; How to Install Them | UbuntuApps">
+<meta name="twitter:description" content="Find the best apps for Ubuntu and learn to install them with apt, snap, Flatpak, .deb, or AppImage, plus a post-install checklist and an LTS release guide.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ubuntuapps.com/#website",
+      "name": "UbuntuApps",
+      "url": "https://ubuntuapps.com/",
+      "description": "Find the best apps for Ubuntu and learn to install them with apt, snap, Flatpak, .deb, or AppImage, plus a post-install checklist and an LTS release guide.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://ubuntuapps.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://ubuntuapps.com/#org",
+      "name": "UbuntuApps",
+      "url": "https://ubuntuapps.com/",
+      "logo": "https://ubuntuapps.com/favicon.svg",
+      "email": "hello@ubuntuapps.com"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the easiest way to install apps on Ubuntu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open App Center, search for the app, and click Install. For apps not listed there, use sudo apt install in a terminal or download the developer's official .deb package."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use snap or apt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use apt for system tools and libraries and for most traditional desktop apps in the Ubuntu archive. Snaps are handy for apps that update quickly, such as browsers and developer tools, because the publisher ships updates directly. Both are maintained and safe when the source is official."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ubuntu support Flatpak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but it isn't set up by default. Install the flatpak package and add the Flathub repository, then you can install Flatpak apps from the terminal or from GNOME Software with the Flatpak plugin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run Windows apps on Ubuntu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many Windows programs run through Wine or a Wine front end like Bottles, and Steam's Proton runs a large number of Windows games. Some apps, especially those with anti-cheat or deep system integration, don't work, so check native or web alternatives first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Ubuntu version should I install?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most people should install the latest LTS (long-term support) release, which gets five years of standard security updates. Interim releases get only nine months of support and are best for people who want the newest features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Ubuntu software free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ubuntu itself and the vast majority of apps in its repositories are free and open source. Some apps available for Ubuntu, such as certain commercial tools or games, are proprietary or paid."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><svg class="logo" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#1e1b3a"/><path d="M8 11l6 5-6 5" fill="none" stroke="#ff9e4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 22h8" stroke="#e9e6ff" stroke-width="2.6" stroke-linecap="round"/></svg><span class="brand-name">UbuntuApps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li><li><a href="/best-ubuntu-apps.html">Best apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html">Installing apps</a></li><li><a href="/things-to-install-after-ubuntu.html">After install</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap main" tabindex="-1">
+<section class="hero">
+  <p class="eyebrow">$ sudo apt install good-advice</p>
+  <h1>Ubuntu apps: find, install, and choose the right software</h1>
+  <p class="hero-lede">Ubuntu gives you several ways to install software, and thousands of apps to choose from. These guides cut through it: which apps are worth installing, which packaging format to use and why, what to do right after a fresh install, and which release you should be running.</p>
+  <p><a class="button" href="/things-to-install-after-ubuntu.html">Just installed Ubuntu?</a> <a class="button button-ghost" href="/install-apps-ubuntu-apt-snap-flatpak.html">apt vs snap vs Flatpak</a></p>
+</section>
+
+<section aria-labelledby="guides-h">
+  <h2 id="guides-h">Guides</h2>
+  <div class="card-grid">
+    <a class="card" href="/best-ubuntu-apps.html"><h3>Best apps for Ubuntu</h3><p>Reliable picks for browsing, office work, media, creative work, development, and gaming.</p></a>
+    <a class="card" href="/install-apps-ubuntu-apt-snap-flatpak.html"><h3>apt vs snap vs Flatpak vs .deb vs AppImage</h3><p>How each format works, the commands you need, and when to use which.</p></a>
+    <a class="card" href="/things-to-install-after-ubuntu.html"><h3>Things to do after installing Ubuntu</h3><p>Updates, drivers, codecs, backups, firewall, and the essential apps for a new system.</p></a>
+    <a class="card" href="/ubuntu-alternatives-windows-mac-apps.html"><h3>Ubuntu alternatives to Windows and Mac apps</h3><p>What to use instead of Office, Photoshop, Premiere, and more, plus Wine and Proton.</p></a>
+    <a class="card" href="/ubuntu-lts-releases.html"><h3>Ubuntu LTS releases explained</h3><p>Support timelines, LTS vs interim releases, Ubuntu Pro, and how to upgrade safely.</p></a>
+  </div>
+</section>
+
+<section aria-labelledby="cheat-h">
+  <h2 id="cheat-h">Five commands every Ubuntu user should know</h2>
+  <pre><code># Refresh package lists and install updates
+sudo apt update &amp;&amp; sudo apt upgrade
+
+# Install an app from the Ubuntu archive
+sudo apt install vlc
+
+# Install an app as a snap
+sudo snap install vlc
+
+# See which Ubuntu release you're running
+lsb_release -a
+
+# Remove an app and clean up unused dependencies
+sudo apt remove vlc &amp;&amp; sudo apt autoremove</code></pre>
+  <p>Prefer clicking? App Center, Ubuntu's built-in store, handles search, install, updates, and removal for snaps and many apt packages.</p>
+</section>
+
+<section aria-labelledby="where-h">
+  <h2 id="where-h">Where Ubuntu apps come from</h2>
+  <p>Ubuntu apps come from a few trusted sources, and knowing which one you're using explains most of the confusion new users run into:</p>
+  <ul>
+    <li><strong>The Ubuntu archive</strong> (installed with apt): tens of thousands of packages built and maintained by Ubuntu and Debian developers. Very stable, though versions on an LTS release don't change much over its lifetime.</li>
+    <li><strong>The Snap Store</strong> (snap and App Center): apps packaged by Canonical, community members, or the app developers themselves, updated automatically.</li>
+    <li><strong>Flathub</strong> (Flatpak): a cross-distribution app store, popular with GNOME and KDE app developers. Not enabled on Ubuntu by default.</li>
+    <li><strong>Developer websites</strong>: official .deb packages, repositories, or AppImages for apps such as Chrome, VS Code, Steam, and Obsidian.</li>
+  </ul>
+  <p>Our rule of thumb: install from the official source closest to the developer, avoid random download sites, and stick to one format per app so updates stay predictable. The <a href="/install-apps-ubuntu-apt-snap-flatpak.html">packaging guide</a> explains the tradeoffs in detail, and the <a href="/ubuntu-alternatives-windows-mac-apps.html">alternatives guide</a> helps if you're coming from Windows or macOS.</p>
+</section>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2><div class="faq-item"><h3>What is the easiest way to install apps on Ubuntu?</h3><p>Open App Center, search for the app, and click Install. For apps not listed there, use <code>sudo apt install</code> in a terminal or download the developer's official .deb package.</p></div><div class="faq-item"><h3>Should I use snap or apt?</h3><p>Use apt for system tools and libraries and for most traditional desktop apps in the Ubuntu archive. Snaps are handy for apps that update quickly, such as browsers and developer tools, because the publisher ships updates directly. Both are maintained and safe when the source is official.</p></div><div class="faq-item"><h3>Does Ubuntu support Flatpak?</h3><p>Yes, but it isn't set up by default. Install the <code>flatpak</code> package and add the Flathub repository, then you can install Flatpak apps from the terminal or from GNOME Software with the Flatpak plugin.</p></div><div class="faq-item"><h3>Can I run Windows apps on Ubuntu?</h3><p>Many Windows programs run through Wine or a Wine front end like Bottles, and Steam's Proton runs a large number of Windows games. Some apps, especially those with anti-cheat or deep system integration, don't work, so check native or web alternatives first.</p></div><div class="faq-item"><h3>Which Ubuntu version should I install?</h3><p>Most people should install the latest LTS (long-term support) release, which gets five years of standard security updates. Interim releases get only nine months of support and are best for people who want the newest features.</p></div><div class="faq-item"><h3>Is Ubuntu software free?</h3><p>Ubuntu itself and the vast majority of apps in its repositories are free and open source. Some apps available for Ubuntu, such as certain commercial tools or games, are proprietary or paid.</p></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">UbuntuApps</p>
+      <p>Independent guides to finding, installing, and choosing apps on Ubuntu Linux.</p>
+    </div>
+    <nav aria-label="Guides">
+      <p class="footer-heading">Guides</p>
+      <ul><li><a href="/best-ubuntu-apps.html">Best Ubuntu apps</a></li><li><a href="/install-apps-ubuntu-apt-snap-flatpak.html">apt vs snap vs Flatpak</a></li><li><a href="/things-to-install-after-ubuntu.html">After installing Ubuntu</a></li><li><a href="/ubuntu-alternatives-windows-mac-apps.html">Windows &amp; Mac alternatives</a></li><li><a href="/ubuntu-lts-releases.html">LTS releases</a></li></ul>
+    </nav>
+    <nav aria-label="Site">
+      <p class="footer-heading">Site</p>
+      <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p class="footer-note">Ubuntu is a registered trademark of Canonical Ltd. This site is not affiliated with Canonical. Other product names are trademarks of their respective owners.</p>
+    <p>&copy; 2026 UbuntuApps. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
